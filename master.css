@@ -1,0 +1,98 @@
+body{
+  background-image:url(train.jpg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 65%;
+  background-attachment: fixed;
+
+}
+header{
+  margin: 0px;
+  padding: 30px 0px 30px 0px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: cursive;
+  background-color: #F9BBDB;
+}
+header a{
+  text-decoration: none;
+ }
+#covid{
+  font-weight: bolder;
+}
+
+h1{
+  font-size: 30px;
+  font-style: normal;
+  font-family: sans-serif;
+  text-align: left;
+  padding-left: 80px;
+}
+nav ul {
+list-style-type:none;
+margin: 0px;
+padding: 5px 10px 15px 10px;
+overflow: hidden;
+background-color:#1B2322;
+text-align: center;
+
+}
+nav li {
+float: left;
+font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+font-size: 1.2em;
+line-height: 40px;
+height: 40px;
+}
+
+nav a {
+text-decoration: none;
+color: white;
+display: block;
+text-transform: uppercase;
+padding: 4px;
+font-weight: bold;
+width: 120px;
+}
+
+nav a:hover, a:active {
+background-color: #23A896;
+}
+#moto{
+  font-size: 3.5em;
+  font-family: arial, serif;
+  text-align: justify;
+  text-decoration:none;
+  padding: 20px 0px 20px 45px;
+}
+
+#format{
+  width: 10%;
+  font-size: 15px;
+  background-color: white;
+  border-width: medium;
+  border-color: #444;
+  border-style: solid;
+}
+
+.form-select{
+  width: 30%;
+  padding: 5px;
+  font-size:15px;
+  text-align: justify;
+  border-width: medium;
+  border-color: #444;
+  border-style: solid;
+}
+
+footer img{
+  
+  max-width:5%;
+  height: auto;
+}
+
+footer{
+  font-size: 15px;
+  font-style: oblique;
+}
