@@ -59,6 +59,11 @@ width: 120px;
 nav a:hover, a:active {
 background-color: #23A896;
 }
+
+#login{
+  padding-left: 61%;
+}
+
 #moto{
   font-size: 3.5em;
   font-family: arial, serif;
