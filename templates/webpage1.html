@@ -8,28 +8,25 @@
 </head>
 
 <body>
-
 <header>
 <span id="covid">Covid-19</span> | For all travel related announcements, <a href="#" target="_blank">click here!</a>
 </header>
 
 <nav>
 <ul>
-<li><a href="{{url_for('homepage')}}">Home</a></li>
+<li><a href="">Home</a></li>
 <li><a href="{{url_for('About')}}">About</a></li>
 <li><a href="#">Contact</a></li>
 <li id="login"><a href="#">Login</a></li>
 </ul>
 </nav>
 
-
-
-<form class="intro" method="post">
+<form class="intro" action="index.html" method="post">
 
 <div id="moto">Move with us</div>
 
 <section>
-  <select class="form-select" name="origin">
+  <select class="form-select">
   <option selected>Origin</option>
   <option value="1">Toronto</option>
   <option value="2">Montreal</option>
@@ -70,7 +67,5 @@
 <br>
 
 <footer>All Rights Reserved.</footer>
-
-
 </body>
 </html>

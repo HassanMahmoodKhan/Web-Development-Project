@@ -1,12 +1,9 @@
 import os
 from flask import Flask
-from flask import Request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-
 basedir = os.path.abspath(os.path.dirname(__file__))
-
 
 app = Flask(__name__)
 
@@ -16,8 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class  trip (db.Model):
-    __tablename__ = 'trip'    
+class  trip_data (db.Model):
     id = db.Column(db.Integer, primary_key= True)
     origin = db.Column(db.Text)
     destination = db.Column(db.Text)
@@ -37,16 +33,10 @@ class  trip (db.Model):
 
 from flask import Flask, render_template, request, url_for
 
-
 app = Flask(__name__)
 @app.route('/')
 def homepage():
     return render_template('webpage1.html')
-
-@app.route('/search_request')
-def search_request():
-    return render_template('search_request.html')
-
 
 @app.route('/About')
 def About():
