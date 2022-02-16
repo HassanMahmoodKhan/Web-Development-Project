@@ -38,6 +38,13 @@ app = Flask(__name__)
 def homepage():
     return render_template('webpage1.html')
 
+@app.route('/About')
+def About():
+    return render_template('About.html')
+
+# app= Flask(__name__)
+# @app.route('/')
+
 
 db = SQLAlchemy(app)
 migrate= Migrate(app, db)
