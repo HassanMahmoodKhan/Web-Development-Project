@@ -42,10 +42,6 @@ def homepage():
 def About():
     return render_template('About.html')
 
-# app= Flask(__name__)
-# @app.route('/')
-
-
 db = SQLAlchemy(app)
 migrate= Migrate(app, db)
 
