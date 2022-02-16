@@ -21,29 +21,29 @@
 </ul>
 </nav>
 
-<form class="intro" action="index.html" method="post">
+<form class="intro" action="{{url_for('trip')}}" method="POST">
 
 <div id="moto">Move with us</div>
 
 <section>
-  <select class="form-select">
+  <select class="form-select" name="origin">
   <option selected>Origin</option>
-  <option value="1">Toronto</option>
-  <option value="2">Montreal</option>
-  <option value="3">Ottawa</option>
-  <option value="4">Vancouver</option>
-  <option value="5">Mississauga</option>
+  <option value="Toronto">Toronto</option>
+  <option value="Montreal">Montreal</option>
+  <option value="Ottawa">Ottawa</option>
+  <option value="Vancouver">Vancouver</option>
+  <option value="Mississauga">Mississauga</option>
 </select>
 </section>
 <br>
 <section>
-  <select class="form-select">
+  <select class="form-select" name="destination">
   <option selected>Destination</option>
-  <option value="1">Toronto</option>
-  <option value="2">Montreal</option>
-  <option value="3">Ottawa</option>
-  <option value="4">Vancouver</option>
-  <option value="5">Mississauga</option>
+  <option value="Toronto">Toronto</option>
+  <option value="Montreal">Montreal</option>
+  <option value="Ottawa">Ottawa</option>
+  <option value="Vancouver">Vancouver</option>
+  <option value="Mississauga">Mississauga</option>
   </select>
 </section>
 <br>
