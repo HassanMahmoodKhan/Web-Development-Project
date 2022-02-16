@@ -1,4 +1,4 @@
-from master import db, trip_data
+from app import db, trip_data
 
 db.create_all()
 

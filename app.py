@@ -10,15 +10,14 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
 
-Migrate(app, db)
+db = SQLAlchemy(app)
 
 class  trip_data (db.Model):
     id = db.Column(db.Integer, primary_key= True)
     origin = db.Column(db.Text)
     destination = db.Column(db.Text)
-   
+    
     
 
     def __init__(self, origin, destination):
@@ -39,5 +38,9 @@ app = Flask(__name__)
 def homepage():
     return render_template('webpage1.html')
 
+
+db = SQLAlchemy(app)
+migrate= Migrate(app, db)
+
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
