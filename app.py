@@ -111,7 +111,7 @@ def trip():
     if origin=='Mississauga' and destination=='vancouver':
         return (str(trp20[0]))
     else:
-        return (str('sorry!'))
+        return ('sorry!')
 
 
     # return(str(select))
