@@ -24,39 +24,8 @@ class  trip_data (db.Model):
         self.origin = origin
         self.destination = destination
         
-
     def __repr__(self):
         return (f"{self.origin}+{self.destination}")
-
-
-db.create_all()
-
-
-trip_1 = trip_data('Toronto','Montreal')
-trip_2 = trip_data('Toronto','Ottawa')
-trip_3 = trip_data('Toronto','Vancouver')
-trip_4 = trip_data('Toronto','Mississauga')
-trip_5 = trip_data('Montreal','Toronto')
-trip_6 = trip_data('Montreal','Ottawa')
-trip_7 = trip_data('Montreal','Vancouver')
-trip_8 = trip_data('Montreal','Mississauga')
-trip_9 = trip_data('Ottawa','Toronto')
-trip_10 = trip_data('Ottawa','Montreal')
-trip_11 = trip_data('Ottawa','Vancouver')
-trip_12 = trip_data('Ottawa','Mississauga')
-trip_13 = trip_data('Vancouver','Toronto')
-trip_14 = trip_data('Vancouver','Montreal')
-trip_15 = trip_data('Vancouver','Ottawa')
-trip_16 = trip_data('Vancouver','Mississauga')
-trip_17 = trip_data('Mississauga','Toronto')
-trip_18 = trip_data('Mississauga','Montreal')
-trip_19 = trip_data('Mississauga','Ottawa')
-trip_20 = trip_data('Mississauga','Vancouver')
-
-
-db.session.add_all([trip_1, trip_2, trip_3, trip_4, trip_5, trip_6, trip_7, trip_8, trip_9, trip_10, trip_11, trip_12, trip_13, trip_14,trip_15, trip_16, trip_17, trip_18, trip_19, trip_20])
-                     
-db.session.commit()   
 
 
 ################################################################################
@@ -69,6 +38,29 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     return render_template('webpage1.html')
+# trp1 =(trip_data.query.all())
+
+trp1 = trip_data.query.filter_by(origin='Toronto', destination='Montreal').all()
+trp2 = trip_data.query.filter_by(origin='Toronto', destination='Ottawa').all()
+trp3 = trip_data.query.filter_by(origin='Toronto', destination='Vancouver').all()
+trp4 = trip_data.query.filter_by(origin='Toronto', destination='Mississauga').all()
+trp5 = trip_data.query.filter_by(origin='Montreal', destination='Toronto').all()
+trp6 = trip_data.query.filter_by(origin='Montreal', destination='Ottawa').all()
+trp7 = trip_data.query.filter_by(origin='Montreal', destination='Vancouver').all()
+trp8 = trip_data.query.filter_by(origin='Montreal', destination='Mississauga').all()
+trp9 = trip_data.query.filter_by(origin='Ottawa', destination='Toronto').all()
+trp10 = trip_data.query.filter_by(origin='Ottawa', destination='Montreal').all()
+trp11= trip_data.query.filter_by(origin='Ottawa', destination='Vancouver').all()
+trp12= trip_data.query.filter_by(origin='Ottawa', destination='Mississauga').all()
+trp13= trip_data.query.filter_by(origin='Vancouver', destination='Toronto').all()
+trp14= trip_data.query.filter_by(origin='Vancouver', destination='Montreal').all()
+trp15= trip_data.query.filter_by(origin='Vancouver', destination='Ottawa').all()
+trp16= trip_data.query.filter_by(origin='Vancouver', destination='Mississauga').all()
+trp17= trip_data.query.filter_by(origin='Mississauga', destination='Toronto').all()
+trp18= trip_data.query.filter_by(origin='Mississauga', destination='Montreal').all()
+trp19= trip_data.query.filter_by(origin='Mississauga', destination='Vancouver').all()
+trp20= trip_data.query.filter_by(origin='Mississauga', destination='Ottawa').all()
+
 
 @app.route('/trip', methods=['GET', 'POST'])
 def trip():
@@ -77,9 +69,54 @@ def trip():
     date= request.form.get('date')
     passengers= request.form.get('passengers')
     select=[origin, destination, date, passengers]
-    return(str(select))
+
+    if origin=='Toronto' and destination=='Montreal':
+        return (str(trp1[0]))
+    if origin=='Toronto' and destination=='Ottawa':
+        return (str(trp2[0]))
+    if origin=='Toronto' and destination=='Vancouver':
+        return (str(trp3[0]))
+    if origin=='Toronto' and destination=='Mississauga':
+        return (str(trp4[0]))
+    if origin=='Montreal' and destination=='Toronto':
+        return (str(trp5[0]))
+    if origin=='Montreal' and destination=='Ottawa':
+        return (str(trp6[0]))
+    if origin=='Montreal' and destination=='Vancouver':
+        return (str(trp7[0]))
+    if origin=='Montreal' and destination=='Mississauga':
+        return (str(trp8[0]))
+    if origin=='Ottawa' and destination=='Toronto':
+        return (str(trp9[0]))
+    if origin=='Ottawa' and destination=='Montreal':
+        return (str(trp10[0]))
+    if origin=='Ottawa' and destination=='Vancouver':
+        return (str(trp11[0]))
+    if origin=='Ottawa' and destination=='Mississauga':
+        return (str(trp12[0]))
+    if origin=='Vancouver' and destination=='Toronto':
+        return (str(trp13[0]))
+    if origin=='Vancouver' and destination=='Montreal':
+        return (str(trp14[0]))
+    if origin=='Vancouver' and destination=='Ottawa':
+        return (str(trp15[0]))
+    if origin=='Vancouver' and destination=='Mississauga':
+        return (str(trp16[0]))
+    if origin=='Mississauga' and destination=='Toronto':
+        return (str(trp17[0]))
+    if origin=='Mississauga' and destination=='Montreal':
+        return (str(trp18[0]))
+    if origin=='Mississauga' and destination=='Ottawa':
+        return (str(trp19[0]))
+    if origin=='Mississauga' and destination=='vancouver':
+        return (str(trp20[0]))
+    else:
+        return (str('sorry!'))
 
 
+    # return(str(select))
+
+        
 @app.route('/About')
 def About():
     return render_template('About.html')
@@ -89,3 +126,4 @@ migrate= Migrate(app, db)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
