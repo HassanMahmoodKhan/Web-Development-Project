@@ -77,7 +77,7 @@ from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 @app.route('/')
 def homepage():
-    return render_template('webpage1.html')
+    return render_template('Home.html')
 # trp1 =(trip_data.query.all())
 
 trp1 = trip_data.query.filter_by(origin='Toronto', destination='Montreal').all()
