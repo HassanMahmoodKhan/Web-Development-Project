@@ -27,7 +27,7 @@ class  trip_data (db.Model):
         self.date = date
         
     def __repr__(self):
-        return (f"Train from {self.origin} to {self.destination} is available on {self.date}")
+        return (f"Train from {self.origin} to {self.destination} is available on ")
 
 ################################################################################
 ################# Do not comment out below code ################################
@@ -72,12 +72,18 @@ class  trip_data (db.Model):
 
 
 
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request
+from flask import url_for
 
 app = Flask(__name__)
 @app.route('/')
-def homepage():
+def Home():
     return render_template('Home.html')
+
+
+@app.route('/About')
+def About():
+    return render_template('About.html') 
 # trp1 =(trip_data.query.all())
 
 trp1 = trip_data.query.filter_by(origin='Toronto', destination='Montreal').all()
@@ -101,6 +107,7 @@ trp18= trip_data.query.filter_by(origin='Mississauga', destination='Montreal').a
 trp19= trip_data.query.filter_by(origin='Mississauga', destination='Vancouver').all()
 trp20= trip_data.query.filter_by(origin='Mississauga', destination='Ottawa').all()
 
+# app = Flask(__name__)
 
 @app.route('/trip', methods=['GET', 'POST'])
 def trip():
@@ -109,48 +116,47 @@ def trip():
     date= request.form.get('date')
     passengers= request.form.get('passengers')
     select=[origin, destination, date, passengers]
-    if date== date:
-        return (str(date))
+    
     if origin=='Toronto' and destination=='Montreal':
-        return (str(trp1[0]))
+        return (str(trp1[0]) + date)
     if origin=='Toronto' and destination=='Ottawa':
-        return (str(trp2[0]))
+        return (str(trp2[0]) + date)
     if origin=='Toronto' and destination=='Vancouver':
-        return (str(trp3[0]))
+        return (str(trp3[0]) + date)
     if origin=='Toronto' and destination=='Mississauga':
-        return (str(trp4[0]))
+        return (str(trp4[0]) + date)
     if origin=='Montreal' and destination=='Toronto':
-        return (str(trp5[0]))
+        return (str(trp5[0]) + date)
     if origin=='Montreal' and destination=='Ottawa':
-        return (str(trp6[0]))
+        return (str(trp6[0]) + date)
     if origin=='Montreal' and destination=='Vancouver':
-        return (str(trp7[0]))
+        return (str(trp7[0]) + date)
     if origin=='Montreal' and destination=='Mississauga':
-        return (str(trp8[0]))
+        return (str(trp8[0]) + date)
     if origin=='Ottawa' and destination=='Toronto':
-        return (str(trp9[0]))
+        return (str(trp9[0]) + date)
     if origin=='Ottawa' and destination=='Montreal':
-        return (str(trp10[0]))
+        return (str(trp10[0]) + date)
     if origin=='Ottawa' and destination=='Vancouver':
-        return (str(trp11[0]))
+        return (str(trp11[0]) + date)
     if origin=='Ottawa' and destination=='Mississauga':
-        return (str(trp12[0]))
+        return (str(trp12[0]) + date)
     if origin=='Vancouver' and destination=='Toronto':
-        return (str(trp13[0]))
+        return (str(trp13[0]) + date)
     if origin=='Vancouver' and destination=='Montreal':
-        return (str(trp14[0]))
+        return (str(trp14[0]) + date)
     if origin=='Vancouver' and destination=='Ottawa':
-        return (str(trp15[0]))
+        return (str(trp15[0]) + date)
     if origin=='Vancouver' and destination=='Mississauga':
-        return (str(trp16[0]))
+        return (str(trp16[0]) + date)
     if origin=='Mississauga' and destination=='Toronto':
-        return (str(trp17[0]))
+        return (str(trp17[0]) + date)
     if origin=='Mississauga' and destination=='Montreal':
-        return (str(trp18[0]))
+        return (str(trp18[0]) + date)
     if origin=='Mississauga' and destination=='Ottawa':
-        return (str(trp19[0]))
+        return (str(trp19[0]) + date)
     if origin=='Mississauga' and destination=='vancouver':
-        return (str(trp20[0]))
+        return (str(trp20[0]) + date)
     else:
         return ('Sorry! Invalid Input.')
 
@@ -158,9 +164,7 @@ def trip():
     # return(str(select))
 
         
-@app.route('/About')
-def About():
-    return render_template('About.html')
+
 
 db = SQLAlchemy(app)
 migrate= Migrate(app, db)
