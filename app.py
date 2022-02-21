@@ -63,7 +63,7 @@ class  trip_data (db.Model):
                      
 # db.session.commit()   
 
-print (trip_data.query.filter_by(origin='Toronto', destination='Montreal').all())
+# print (trip_data.query.filter_by(origin='Toronto', destination='Montreal').all())
 # # print (trip_data.query.all())
 
 
@@ -109,7 +109,8 @@ def trip():
     date= request.form.get('date')
     passengers= request.form.get('passengers')
     select=[origin, destination, date, passengers]
-
+    if date== date:
+        return (str(date))
     if origin=='Toronto' and destination=='Montreal':
         return (str(trp1[0]))
     if origin=='Toronto' and destination=='Ottawa':
