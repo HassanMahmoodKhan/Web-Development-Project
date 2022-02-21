@@ -1,4 +1,6 @@
 import os
+import datetime
+from datetime import date
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -108,6 +110,13 @@ trp19= trip_data.query.filter_by(origin='Mississauga', destination='Vancouver').
 trp20= trip_data.query.filter_by(origin='Mississauga', destination='Ottawa').all()
 
 # app = Flask(__name__)
+today = date.today()
+today1 = today.strftime("%Y/%m/%d")
+select1 = today1.split('/')
+y1 = int(select1[0])
+m1 = int(select1[1])
+d1 = int(select1[2])
+D1 = datetime.datetime(y1, m1, d1)
 
 @app.route('/trip', methods=['GET', 'POST'])
 def trip():
@@ -115,47 +124,54 @@ def trip():
     destination= request.form.get('destination')
     date= request.form.get('date')
     passengers= request.form.get('passengers')
-    select=[origin, destination, date, passengers]
+
+    select= date.split('-')
+    y = int(select[0])
+    m = int(select[1])
+    d = int(select[2])
+    D = datetime.datetime(y,m,d)
+
     
-    if origin=='Toronto' and destination=='Montreal':
+    
+    if origin=='Toronto' and destination=='Montreal' and D >= D1:
         return (str(trp1[0]) + date)
-    if origin=='Toronto' and destination=='Ottawa':
+    if origin=='Toronto' and destination=='Ottawa' and D >= D1:
         return (str(trp2[0]) + date)
-    if origin=='Toronto' and destination=='Vancouver':
+    if origin=='Toronto' and destination=='Vancouver' and D >= D1:
         return (str(trp3[0]) + date)
-    if origin=='Toronto' and destination=='Mississauga':
+    if origin=='Toronto' and destination=='Mississauga' and D >= D1:
         return (str(trp4[0]) + date)
-    if origin=='Montreal' and destination=='Toronto':
+    if origin=='Montreal' and destination=='Toronto' and D >= D1:
         return (str(trp5[0]) + date)
-    if origin=='Montreal' and destination=='Ottawa':
+    if origin=='Montreal' and destination=='Ottawa' and D >= D1:
         return (str(trp6[0]) + date)
-    if origin=='Montreal' and destination=='Vancouver':
+    if origin=='Montreal' and destination=='Vancouver' and D >= D1:
         return (str(trp7[0]) + date)
-    if origin=='Montreal' and destination=='Mississauga':
+    if origin=='Montreal' and destination=='Mississauga' and D >= D1:
         return (str(trp8[0]) + date)
-    if origin=='Ottawa' and destination=='Toronto':
+    if origin=='Ottawa' and destination=='Toronto' and D >= D1:
         return (str(trp9[0]) + date)
-    if origin=='Ottawa' and destination=='Montreal':
+    if origin=='Ottawa' and destination=='Montreal' and D >= D1:
         return (str(trp10[0]) + date)
-    if origin=='Ottawa' and destination=='Vancouver':
+    if origin=='Ottawa' and destination=='Vancouver' and D >= D1:
         return (str(trp11[0]) + date)
-    if origin=='Ottawa' and destination=='Mississauga':
+    if origin=='Ottawa' and destination=='Mississauga' and D >= D1:
         return (str(trp12[0]) + date)
-    if origin=='Vancouver' and destination=='Toronto':
+    if origin=='Vancouver' and destination=='Toronto' and D >= D1:
         return (str(trp13[0]) + date)
-    if origin=='Vancouver' and destination=='Montreal':
+    if origin=='Vancouver' and destination=='Montreal' and D >= D1:
         return (str(trp14[0]) + date)
-    if origin=='Vancouver' and destination=='Ottawa':
+    if origin=='Vancouver' and destination=='Ottawa' and D >= D1:
         return (str(trp15[0]) + date)
-    if origin=='Vancouver' and destination=='Mississauga':
+    if origin=='Vancouver' and destination=='Mississauga' and D >= D1:
         return (str(trp16[0]) + date)
-    if origin=='Mississauga' and destination=='Toronto':
+    if origin=='Mississauga' and destination=='Toronto' and D >= D1:
         return (str(trp17[0]) + date)
-    if origin=='Mississauga' and destination=='Montreal':
+    if origin=='Mississauga' and destination=='Montreal' and D >= D1:
         return (str(trp18[0]) + date)
-    if origin=='Mississauga' and destination=='Ottawa':
+    if origin=='Mississauga' and destination=='Ottawa' and D >= D1:
         return (str(trp19[0]) + date)
-    if origin=='Mississauga' and destination=='vancouver':
+    if origin=='Mississauga' and destination=='vancouver' and D >= D1 :
         return (str(trp20[0]) + date)
     else:
         return ('Sorry! Invalid Input.')
