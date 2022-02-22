@@ -129,7 +129,7 @@ def trip():
     d = int(select[2])
     D = datetime.datetime(y,m,d)
 
-    if origin== 'Origin' and destination== 'Destination':
+    if origin== 'Origin' or destination== 'Destination':
         return ("Please select origin and destination!")
     elif origin==destination:
         return ('Origin and destination can not be the same!')
