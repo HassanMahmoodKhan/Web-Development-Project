@@ -27,7 +27,8 @@ class  trip_data (db.Model):
         self.date = date
         
     def __repr__(self):
-        return (f"Train from {self.origin} to {self.destination} is available on ")
+        return (f"<h1>Train from {self.origin} to {self.destination} is available on ")
+        
 
 ################################################################################
 ################# Do not comment out below code ################################
@@ -130,51 +131,51 @@ def trip():
     D = datetime.datetime(y,m,d)
 
     if origin== 'Origin' or destination== 'Destination':
-        return ("Please select origin and destination!")
+        return ("<h1>Please select origin and destination!<h1>")
     elif origin==destination:
-        return ('Origin and destination can not be the same!')
+        return ('<h1>Origin and destination can not be the same!<h1>')
     elif origin=='Toronto' and destination=='Montreal' and D > D1:
-        return (str(trp1[0]) + date)
+        return (str(trp1[0]) + date + ".<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Toronto' and destination=='Ottawa' and D > D1:
-        return (str(trp2[0]) + date)
+        return (str(trp2[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Toronto' and destination=='Vancouver' and D > D1:
-        return (str(trp3[0]) + date)
+        return (str(trp3[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Toronto' and destination=='Mississauga' and D > D1:
-        return (str(trp4[0]) + date)
+        return (str(trp4[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Montreal' and destination=='Toronto' and D > D1:
-        return (str(trp5[0]) + date)
+        return (str(trp5[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Montreal' and destination=='Ottawa' and D > D1:
-        return (str(trp6[0]) + date)
+        return (str(trp6[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Montreal' and destination=='Vancouver' and D > D1:
-        return (str(trp7[0]) + date)
+        return (str(trp7[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Montreal' and destination=='Mississauga' and D > D1:
-        return (str(trp8[0]) + date)
+        return (str(trp8[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Ottawa' and destination=='Toronto' and D > D1:
-        return (str(trp9[0]) + date)
+        return (str(trp9[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Ottawa' and destination=='Montreal' and D > D1:
-        return (str(trp10[0]) + date)
+        return (str(trp10[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Ottawa' and destination=='Vancouver' and D > D1:
-        return (str(trp11[0]) + date)
+        return (str(trp11[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Ottawa' and destination=='Mississauga' and D > D1:
-        return (str(trp12[0]) + date)
+        return (str(trp12[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Vancouver' and destination=='Toronto' and D > D1:
-        return (str(trp13[0]) + date)
+        return (str(trp13[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Vancouver' and destination=='Montreal' and D > D1:
-        return (str(trp14[0]) + date)
+        return (str(trp14[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Vancouver' and destination=='Ottawa' and D > D1:
-        return (str(trp15[0]) + date)
+        return (str(trp15[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Vancouver' and destination=='Mississauga' and D > D1:
-        return (str(trp16[0]) + date)
+        return (str(trp16[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Mississauga' and destination=='Toronto' and D > D1:
-        return (str(trp17[0]) + date)
+        return (str(trp17[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Mississauga' and destination=='Montreal' and D > D1:
-        return (str(trp18[0]) + date)
+        return (str(trp18[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Mississauga' and destination=='Ottawa' and D > D1:
-        return (str(trp19[0]) + date)
+        return (str(trp19[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     elif origin=='Mississauga' and destination=='vancouver' and D > D1 :
-        return (str(trp20[0]) + date)
+        return (str(trp20[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
     else:
-        return ('Invalid date input!')
+        return ('<h1>Invalid date input!<h1>')
 
 
     
