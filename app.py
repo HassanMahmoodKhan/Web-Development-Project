@@ -133,45 +133,45 @@ def trip():
         return ("Please select origin and destination!")
     elif origin==destination:
         return ('Origin and destination can not be the same!')
-    elif origin=='Toronto' and destination=='Montreal' and D >= D1:
+    elif origin=='Toronto' and destination=='Montreal' and D > D1:
         return (str(trp1[0]) + date)
-    elif origin=='Toronto' and destination=='Ottawa' and D >= D1:
+    elif origin=='Toronto' and destination=='Ottawa' and D > D1:
         return (str(trp2[0]) + date)
-    elif origin=='Toronto' and destination=='Vancouver' and D >= D1:
+    elif origin=='Toronto' and destination=='Vancouver' and D > D1:
         return (str(trp3[0]) + date)
-    elif origin=='Toronto' and destination=='Mississauga' and D >= D1:
+    elif origin=='Toronto' and destination=='Mississauga' and D > D1:
         return (str(trp4[0]) + date)
-    elif origin=='Montreal' and destination=='Toronto' and D >= D1:
+    elif origin=='Montreal' and destination=='Toronto' and D > D1:
         return (str(trp5[0]) + date)
-    elif origin=='Montreal' and destination=='Ottawa' and D >= D1:
+    elif origin=='Montreal' and destination=='Ottawa' and D > D1:
         return (str(trp6[0]) + date)
-    elif origin=='Montreal' and destination=='Vancouver' and D >= D1:
+    elif origin=='Montreal' and destination=='Vancouver' and D > D1:
         return (str(trp7[0]) + date)
-    elif origin=='Montreal' and destination=='Mississauga' and D >= D1:
+    elif origin=='Montreal' and destination=='Mississauga' and D > D1:
         return (str(trp8[0]) + date)
-    elif origin=='Ottawa' and destination=='Toronto' and D >= D1:
+    elif origin=='Ottawa' and destination=='Toronto' and D > D1:
         return (str(trp9[0]) + date)
-    elif origin=='Ottawa' and destination=='Montreal' and D >= D1:
+    elif origin=='Ottawa' and destination=='Montreal' and D > D1:
         return (str(trp10[0]) + date)
-    elif origin=='Ottawa' and destination=='Vancouver' and D >= D1:
+    elif origin=='Ottawa' and destination=='Vancouver' and D > D1:
         return (str(trp11[0]) + date)
-    elif origin=='Ottawa' and destination=='Mississauga' and D >= D1:
+    elif origin=='Ottawa' and destination=='Mississauga' and D > D1:
         return (str(trp12[0]) + date)
-    elif origin=='Vancouver' and destination=='Toronto' and D >= D1:
+    elif origin=='Vancouver' and destination=='Toronto' and D > D1:
         return (str(trp13[0]) + date)
-    elif origin=='Vancouver' and destination=='Montreal' and D >= D1:
+    elif origin=='Vancouver' and destination=='Montreal' and D > D1:
         return (str(trp14[0]) + date)
-    elif origin=='Vancouver' and destination=='Ottawa' and D >= D1:
+    elif origin=='Vancouver' and destination=='Ottawa' and D > D1:
         return (str(trp15[0]) + date)
-    elif origin=='Vancouver' and destination=='Mississauga' and D >= D1:
+    elif origin=='Vancouver' and destination=='Mississauga' and D > D1:
         return (str(trp16[0]) + date)
-    elif origin=='Mississauga' and destination=='Toronto' and D >= D1:
+    elif origin=='Mississauga' and destination=='Toronto' and D > D1:
         return (str(trp17[0]) + date)
-    elif origin=='Mississauga' and destination=='Montreal' and D >= D1:
+    elif origin=='Mississauga' and destination=='Montreal' and D > D1:
         return (str(trp18[0]) + date)
-    elif origin=='Mississauga' and destination=='Ottawa' and D >= D1:
+    elif origin=='Mississauga' and destination=='Ottawa' and D > D1:
         return (str(trp19[0]) + date)
-    elif origin=='Mississauga' and destination=='vancouver' and D >= D1 :
+    elif origin=='Mississauga' and destination=='vancouver' and D > D1 :
         return (str(trp20[0]) + date)
     else:
         return ('Invalid date input!')
