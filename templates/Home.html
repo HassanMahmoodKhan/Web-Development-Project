@@ -26,7 +26,7 @@
 <div id="moto">Move with us</div>
 
 <section>
-  <select class="form-select" name="origin">
+  <select class="form-select" name="origin" required>
   <option selected>Origin</option>
   <option value="Toronto">Toronto</option>
   <option value="Montreal">Montreal</option>
@@ -37,7 +37,7 @@
 </section>
 <br>
 <section>
-  <select class="form-select" name="destination">
+  <select class="form-select" name="destination" required>
   <option selected>Destination</option>
   <option value="Toronto">Toronto</option>
   <option value="Montreal">Montreal</option>
@@ -48,10 +48,10 @@
 </section>
 <br>
 <section>
-<input type="date" class="form-select" min={new Date().toISOString() name="date" placeholder="Date">
+<input type="date" class="form-select" name="date" placeholder="Date" required>
 <br>
 <br>
-<input class="form-select" type="number" name="passengers" placeholder="Passengers">
+<input class="form-select" type="number" min=1 name="passengers" placeholder="Passengers" required>
 <br>
 <br>
 <input id="format" type="submit" value="Submit">
