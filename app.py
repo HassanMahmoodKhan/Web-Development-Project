@@ -21,8 +21,6 @@ class  trip_data (db.Model):
     destination = db.Column(db.Text)
     date = db.Column(db.Text)
     
-    
-
     def __init__(self, origin, destination, date):
         self.origin = origin
         self.destination = destination
@@ -66,7 +64,7 @@ class  trip_data (db.Model):
 # db.session.commit()   
 
 # print (trip_data.query.filter_by(origin='Toronto', destination='Montreal').all())
-# # print (trip_data.query.all())
+# print (trip_data.query.all())
 
 
 
