@@ -1,9 +1,10 @@
 import os
 import datetime
 from datetime import date
-from flask import Flask
+from flask import Flask, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from rds import cur
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -27,7 +28,7 @@ class  trip_data (db.Model):
         self.date = date
         
     def __repr__(self):
-        return (f"<h1>Train from {self.origin} to {self.destination} is available on ")
+        return ()
         
 
 ################################################################################
@@ -79,7 +80,7 @@ from flask import url_for
 app = Flask(__name__)
 @app.route('/')
 def Home():
-    return render_template('Home.html')
+    return render_template('Home(new).html')
 
 
 @app.route('/About')
@@ -129,58 +130,567 @@ def trip():
     m = int(select[1])
     d = int(select[2])
     D = datetime.datetime(y,m,d)
+    if origin == 'Toronto' and destination=='Montreal' and D>D1:
 
-    if origin== 'Origin' or destination== 'Destination':
-        return ("<h1>Please select origin and destination!<h1>")
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Montreal'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html',  date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+
+    if origin == 'Toronto' and destination=='Ottawa'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Ottawa'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Toronto' and destination=='Vancouver'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Vancouver'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Toronto' and destination=='Mississauga'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Mississauga'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Montreal' and destination=='Toronto'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Toronto'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Montreal' and destination=='Ottawa'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Ottawa'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Montreal' and destination=='Vancouver'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Vancouver'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Montreal' and destination=='Mississauga'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Mississauga'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Ottawa' and destination=='Toronto'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Toronto'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Ottawa' and destination=='Montreal'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Montreal'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Ottawa' and destination=='Vancouver'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Vancouver'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Ottawa' and destination=='Mississauga'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Mississauga'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Mississauga' and destination=='Toronto'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Toronto'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Mississauga' and destination=='Montreal'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Montreal'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Mississauga' and destination=='Ottawa'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Ottawa'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Mississauga' and destination=='Ottawa'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Ottawa'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
+    if origin == 'Mississauga' and destination=='Vancouver'and D>D1:
+
+        cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Vancouver'");   
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        details2 = list(details[1])
+        details3 = list(details[2])
+        details4 = list(details[3])
+        
+        
+        return render_template('Train_Schedule.html', date=date, train_1 = details1[1:2][0],
+                                                        origin_1 = details1[2:3][0],
+                                                        destination_1 = details1[3:4][0],
+                                                        departure_time_1 = details1[4:5][0],
+                                                        arrival_time_1 = details1[5:6][0],
+                                                        duration_1 = details1[6:7][0],
+                                                        train_2 = details2[1:2][0],
+                                                        departure_time_2 = details2[4:5][0],
+                                                        arrival_time_2 = details2[5:6][0],
+                                                        duration_2 = details2[6:7][0],
+                                                        train_3 = details3[1:2][0],
+                                                        departure_time_3 = details3[4:5][0],
+                                                        arrival_time_3 = details3[5:6][0],
+                                                        duration_3 = details3[6:7][0],
+                                                        train_4 = details4[1:2][0],
+                                                        departure_time_4 = details4[4:5][0],
+                                                        arrival_time_4 = details4[5:6][0],
+                                                        duration_4 = details4[6:7][0],) 
+
     elif origin==destination:
-        return ('<h1>Origin and destination can not be the same!<h1>')
-    elif origin=='Toronto' and destination=='Montreal' and D > D1:
-        return (str(trp1[0]) + date + ".<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Toronto' and destination=='Ottawa' and D > D1:
-        return (str(trp2[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Toronto' and destination=='Vancouver' and D > D1:
-        return (str(trp3[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Toronto' and destination=='Mississauga' and D > D1:
-        return (str(trp4[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Montreal' and destination=='Toronto' and D > D1:
-        return (str(trp5[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Montreal' and destination=='Ottawa' and D > D1:
-        return (str(trp6[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Montreal' and destination=='Vancouver' and D > D1:
-        return (str(trp7[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Montreal' and destination=='Mississauga' and D > D1:
-        return (str(trp8[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Ottawa' and destination=='Toronto' and D > D1:
-        return (str(trp9[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Ottawa' and destination=='Montreal' and D > D1:
-        return (str(trp10[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Ottawa' and destination=='Vancouver' and D > D1:
-        return (str(trp11[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Ottawa' and destination=='Mississauga' and D > D1:
-        return (str(trp12[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Vancouver' and destination=='Toronto' and D > D1:
-        return (str(trp13[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Vancouver' and destination=='Montreal' and D > D1:
-        return (str(trp14[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Vancouver' and destination=='Ottawa' and D > D1:
-        return (str(trp15[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Vancouver' and destination=='Mississauga' and D > D1:
-        return (str(trp16[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Mississauga' and destination=='Toronto' and D > D1:
-        return (str(trp17[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Mississauga' and destination=='Montreal' and D > D1:
-        return (str(trp18[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Mississauga' and destination=='Ottawa' and D > D1:
-        return (str(trp19[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
-    elif origin=='Mississauga' and destination=='vancouver' and D > D1 :
-        return (str(trp20[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+        return("<h1>Please select valid origin and destination!!<h1>")
+
     else:
-        return ('<h1>Invalid date input!<h1>')
+        return ("<h1>Invalid date input!!<h1>")
+
+
+
+
+
+
+
+
+
+
+
+
+    # if origin== 'Origin' or destination== 'Destination':
+    #     return ("<h1>Please select origin and destination!<h1>")
+    # elif origin==destination:
+    #     return ('<h1>Origin and destination can not be the same!<h1>')
+    # elif origin=='Toronto' and destination=='Montreal' and D > D1:
+    #     return (str(trp1[0]) + date + ".<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Toronto' and destination=='Ottawa' and D > D1:
+    #     return (str(trp2[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Toronto' and destination=='Vancouver' and D > D1:
+    #     return (str(trp3[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Toronto' and destination=='Mississauga' and D > D1:
+    #     return (str(trp4[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Montreal' and destination=='Toronto' and D > D1:
+    #     return (str(trp5[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Montreal' and destination=='Ottawa' and D > D1:
+    #     return (str(trp6[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Montreal' and destination=='Vancouver' and D > D1:
+    #     return (str(trp7[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Montreal' and destination=='Mississauga' and D > D1:
+    #     return (str(trp8[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Ottawa' and destination=='Toronto' and D > D1:
+    #     return (str(trp9[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Ottawa' and destination=='Montreal' and D > D1:
+    #     return (str(trp10[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Ottawa' and destination=='Vancouver' and D > D1:
+    #     return (str(trp11[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Ottawa' and destination=='Mississauga' and D > D1:
+    #     return (str(trp12[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Vancouver' and destination=='Toronto' and D > D1:
+    #     return (str(trp13[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Vancouver' and destination=='Montreal' and D > D1:
+    #     return (str(trp14[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Vancouver' and destination=='Ottawa' and D > D1:
+    #     return (str(trp15[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Vancouver' and destination=='Mississauga' and D > D1:
+    #     return (str(trp16[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Mississauga' and destination=='Toronto' and D > D1:
+    #     return (str(trp17[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Mississauga' and destination=='Montreal' and D > D1:
+    #     return (str(trp18[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Mississauga' and destination=='Ottawa' and D > D1:
+    #     return (str(trp19[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # elif origin=='Mississauga' and destination=='vancouver' and D > D1 :
+    #     return (str(trp20[0]) + date + "." "<br><br>Seats are available for " + passengers + " passenger.")
+    # else:
+    #     return ('<h1>Invalid date input!<h1>')
 
 
     
 
-        
 
 
 db = SQLAlchemy(app)

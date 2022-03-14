@@ -7,8 +7,10 @@ conn = pymysql.connect(
     port = 3306 
 )
 
-def search_trains():
-    cur=conn.cursor()
-    cur.execute("SELECT * FROM DATABASEPROJ.search_trains")
-    details = cur.fetchall()
-    return details
+cur=conn.cursor()
+cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Montreal' AND departure_time= '9:00'");   
+details = cur.fetchall()
+
+
+
+
