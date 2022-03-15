@@ -189,8 +189,8 @@ def fare():
         details = cur.fetchall()  
         details1 = list(details[0])
         fare = int(details1[7:8][0])
-        gst = int(1.005 * fare)
-        pst = int(1.001 * fare)
+        gst = float(0.05 * fare)
+        pst = float(0.1 * fare)
         passengers1=int(passengers)
         total = int((fare + gst + pst)* passengers1)
     
