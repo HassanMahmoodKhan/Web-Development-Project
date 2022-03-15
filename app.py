@@ -5,7 +5,7 @@ from flask import Flask, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from rds import cur
-
+import requests
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
@@ -78,6 +78,9 @@ from flask import Flask, render_template, request
 from flask import url_for
 
 app = Flask(__name__)
+
+
+
 @app.route('/')
 def Home():
     return render_template('Home(new).html')
@@ -109,14 +112,12 @@ trp18= trip_data.query.filter_by(origin='Mississauga', destination='Montreal').a
 trp19= trip_data.query.filter_by(origin='Mississauga', destination='Vancouver').all()
 trp20= trip_data.query.filter_by(origin='Mississauga', destination='Ottawa').all()
 
-# app = Flask(__name__)
-today = date.today()
-today1 = today.strftime("%Y/%m/%d")
-select1 = today1.split('/')
-y1 = int(select1[0])
-m1 = int(select1[1])
-d1 = int(select1[2])
-D1 = datetime.datetime(y1, m1, d1)
+
+
+global_ori = []
+global_des = []
+global_dat = []
+global_pas = []
 
 @app.route('/trip', methods=['GET', 'POST'])
 def trip():
@@ -124,14 +125,13 @@ def trip():
     destination= request.form.get('destination')
     date= request.form.get('date')
     passengers= request.form.get('passengers')
-
-    select= date.split('-')
-    y = int(select[0])
-    m = int(select[1])
-    d = int(select[2])
-    D = datetime.datetime(y,m,d)
-    if origin == 'Toronto' and destination=='Montreal' and D>D1:
-
+    global_ori.append(origin)
+    global_des.append(destination)
+    global_dat.append(date)
+    global_pas.append(passengers)
+            
+    if origin == 'Toronto' and destination=='Montreal':
+    
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Montreal'");   
         details = cur.fetchall()  
         details1 = list(details[0])
@@ -160,7 +160,7 @@ def trip():
                                                         duration_4 = details4[6:7][0],) 
 
 
-    if origin == 'Toronto' and destination=='Ottawa'and D>D1:
+    if origin == 'Toronto' and destination=='Ottawa':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Ottawa'");   
         details = cur.fetchall()  
@@ -189,7 +189,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Toronto' and destination=='Vancouver'and D>D1:
+    if origin == 'Toronto' and destination=='Vancouver':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Vancouver'");   
         details = cur.fetchall()  
@@ -218,7 +218,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Toronto' and destination=='Mississauga'and D>D1:
+    if origin == 'Toronto' and destination=='Mississauga':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Mississauga'");   
         details = cur.fetchall()  
@@ -247,7 +247,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Montreal' and destination=='Toronto'and D>D1:
+    if origin == 'Montreal' and destination=='Toronto':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Toronto'");   
         details = cur.fetchall()  
@@ -276,7 +276,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Montreal' and destination=='Ottawa'and D>D1:
+    if origin == 'Montreal' and destination=='Ottawa':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Ottawa'");   
         details = cur.fetchall()  
@@ -305,7 +305,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Montreal' and destination=='Vancouver'and D>D1:
+    if origin == 'Montreal' and destination=='Vancouver':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Vancouver'");   
         details = cur.fetchall()  
@@ -334,7 +334,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Montreal' and destination=='Mississauga'and D>D1:
+    if origin == 'Montreal' and destination=='Mississauga':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Montreal' AND arrival= 'Mississauga'");   
         details = cur.fetchall()  
@@ -363,7 +363,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Ottawa' and destination=='Toronto'and D>D1:
+    if origin == 'Ottawa' and destination=='Toronto':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Toronto'");   
         details = cur.fetchall()  
@@ -392,7 +392,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Ottawa' and destination=='Montreal'and D>D1:
+    if origin == 'Ottawa' and destination=='Montreal':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Montreal'");   
         details = cur.fetchall()  
@@ -421,7 +421,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Ottawa' and destination=='Vancouver'and D>D1:
+    if origin == 'Ottawa' and destination=='Vancouver':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Vancouver'");   
         details = cur.fetchall()  
@@ -450,7 +450,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Ottawa' and destination=='Mississauga'and D>D1:
+    if origin == 'Ottawa' and destination=='Mississauga':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Ottawa' AND arrival= 'Mississauga'");   
         details = cur.fetchall()  
@@ -479,7 +479,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Mississauga' and destination=='Toronto'and D>D1:
+    if origin == 'Mississauga' and destination=='Toronto':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Toronto'");   
         details = cur.fetchall()  
@@ -508,7 +508,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Mississauga' and destination=='Montreal'and D>D1:
+    if origin == 'Mississauga' and destination=='Montreal':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Montreal'");   
         details = cur.fetchall()  
@@ -537,7 +537,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Mississauga' and destination=='Ottawa'and D>D1:
+    if origin == 'Mississauga' and destination=='Ottawa':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Ottawa'");   
         details = cur.fetchall()  
@@ -566,7 +566,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Mississauga' and destination=='Ottawa'and D>D1:
+    if origin == 'Mississauga' and destination=='Ottawa':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Ottawa'");   
         details = cur.fetchall()  
@@ -595,7 +595,7 @@ def trip():
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
 
-    if origin == 'Mississauga' and destination=='Vancouver'and D>D1:
+    if origin == 'Mississauga' and destination=='Vancouver':
 
         cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Mississuga' AND arrival= 'Vancouver'");   
         details = cur.fetchall()  
@@ -623,20 +623,36 @@ def trip():
                                                         departure_time_4 = details4[4:5][0],
                                                         arrival_time_4 = details4[5:6][0],
                                                         duration_4 = details4[6:7][0],) 
-
-    elif origin==destination:
-        return("<h1>Please select valid origin and destination!!<h1>")
-
+    
     else:
-        return ("<h1>Invalid date input!!<h1>")
+        return redirect(url_for('fare'))
+  
 
+    
+@app.route('/fare', methods=['GET', 'POST'])
+def fare():
 
-
-
-
-
-
-
+    origin = global_ori.pop()
+    destination = global_des.pop()
+    date = global_dat.pop()
+    passengers = global_pas.pop()
+    option = request.form['option']
+    depart_time = []
+    arrival_time = []
+    duration = []
+    if origin==origin and destination==destination and option==option:
+        option1 = option[-1:]
+        print(option1)
+        query = "SELECT * FROM DATABASEPROJ.train_data WHERE departure= %s AND arrival= %s AND train= %s"
+        tup1 = (origin, destination, option1) 
+        cur.execute(query,tup1) 
+        details = cur.fetchall()  
+        details1 = list(details[0])
+        print(details1)
+    
+    return render_template('Fare_Details.html', origin_1=origin, destination_1=destination, date=date,
+                                                passengers=passengers, option=option, departure_time_1= details1[4:5][0],
+                                                arrival_time_1 = details1[5:6][0], duration_1= details1[6:7][0], train_1=option1 )
 
 
 

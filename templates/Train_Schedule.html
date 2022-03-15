@@ -35,9 +35,9 @@
 <span class="display-6" style="font-size: 20px;"> {{date}}</span>
 </div>
 
-<div class="container mt-3 mb-5 bg-light" >
+<div class="container mt-3 mb-5 bg-light">
   <h3>Train Schedule</h3>
-  <form action="#">   
+  <form action="{{url_for('fare')}}" method="POST" >   
   <table class="table table-hover ">
     <thead>
       <tr class="table-active">
@@ -57,13 +57,13 @@
         <td>{{duration_1}}</td>
         <td>
         <div class="radio">
-          <input type="radio" id="eco1" name="option" value="89">
+          <input type="radio" id="eco1" name="option" value="Economy 1" checked>
           <label for="eco1">$89</label>
         </div>
         </td>
         <td>
         <div class="radio">
-          <input type="radio" id="bus1" name="option" value="109">
+          <input type="radio" id="bus1" name="option" value="Buisness 1" >
           <label for="bus1">$109</label>
         </div>
         </td>
@@ -75,13 +75,13 @@
         <td>{{duration_2}}</td>
         <td>
           <div class="radio">
-            <input type="radio" id="eco2" name="option" value="99">
+            <input type="radio" id="eco2" name="option" value="Economy 2" checked>
             <label for="eco2">$99</label>
           </div>
         </td>
         <td>
           <div class="radio">
-            <input type="radio" id="bus2" name="option" value="119">
+            <input type="radio" id="bus2" name="option" value="Buisness 2">
             <label for="bus2">$119</label>
           </div>
         </td>
@@ -93,13 +93,13 @@
         <td>{{duration_3}}</td>
         <td>
           <div class="radio">
-            <input type="radio" id="eco3" name="option" value="99">
+            <input type="radio" id="eco3" name="option" value="Economy 3" checked>
             <label for="eco3">$99</label>
           </div>
         </td>
         <td>
           <div class="radio">
-            <input type="radio" id="bus3" name="option" value="119">
+            <input type="radio" id="bus3" name="option" value="Buisness 3">
             <label for="bus3">$119</label>
           </div>
         </td>
@@ -111,13 +111,13 @@
         <td>{{duration_4}}</td>
         <td>
           <div class="radio">
-            <input type="radio" id="eco4" name="option" value="79">
+            <input type="radio" id="eco4" name="option" value="Economy 4" checked>
             <label for="eco4">$79</label>
           </div>
         </td>
         <td>
           <div class="radio">
-            <input type="radio" id="bus4" name="option" value="99">
+            <input type="radio" id="bus4" name="option" value="Buisness 4">
             <label for="bus4">$99</label>
           </div>
         </td>

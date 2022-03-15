@@ -52,7 +52,7 @@ background-position: center; max-width: auto ; height: auto;">
 <div class=" container-fluid p-3  mt-0 bg-dark text-light" style="text-align: center; opacity: 0.8; margin-left: 0; width: 42%; ">
     <h1 style="font-size: 40px;">Move With Us</h1>
     <br>
-  <form class="intro" action="{{url_for('trip')}}" method="POST">
+  <form class="intro" action="/trip" method="POST">
 
     <section>
       <select class="form-select" name="origin" required>
@@ -77,7 +77,7 @@ background-position: center; max-width: auto ; height: auto;">
     </section>
     <br>
     <section>
-    <input class="form-select" type="date" name="date" placeholder="Date" min="TDate()" onchange="TDate()" required>
+    <input class="form-select" type="date" name="date" placeholder="Date" required>
     <br>
     <input class="form-select" type="number" min=1 name="passengers" placeholder="Passengers" required>
     <br>
