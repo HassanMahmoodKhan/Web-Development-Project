@@ -188,11 +188,10 @@ def fare():
         cur.execute(query,tup1) 
         details = cur.fetchall()  
         details1 = list(details[0])
-        fare = int(details1[7:8][0])
+        fare = int(details1[7:8][0])* int(passengers)
         gst = float(0.05 * fare)
-        pst = float(0.1 * fare)
-        passengers1=int(passengers)
-        total = int((fare + gst + pst)* passengers1)
+        pst = float(0.09 * fare)
+        total = int((fare + gst + pst))
     
     return render_template('Fare_Details.html', origin_1=origin, destination_1=destination, date=date,
                                                 passengers=passengers, option=option, departure_time_1= details1[4:5][0],
