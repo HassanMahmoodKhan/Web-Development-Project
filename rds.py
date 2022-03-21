@@ -8,8 +8,6 @@ conn = pymysql.connect(
 )
 
 cur=conn.cursor()
-cur.execute("SELECT * FROM DATABASEPROJ.train_data WHERE departure= 'Toronto' AND arrival= 'Montreal' AND departure_time= '9:00'");   
-details = cur.fetchall()
 
 
 

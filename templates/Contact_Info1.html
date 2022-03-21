@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  .btn:hover {
+    background-color: #2035f1;
+    color: white;
+  }
+    </style>
+</head>
+<body style="background-image: linear-gradient(to right,#f0e5ef , #F1F0ED);">
+    <header>
+      <div class="alert text" style="margin: 0px 0px 0px 0px; padding: 25px; text-align: center; font-size: large;
+      background-image: linear-gradient(to right, #00B7D8 , #00E54B );">
+          <strong>Covid-19</strong> | For all travel related announcements,<a href="#" class="alert-link" 
+          style="text-decoration: none; color: black;"> click here!</a>
+        </div>
+  </header>
+
+  <div class="container-fluid" style="padding-top: 20px;">
+    <ul class="pagination pagination-lg justify-content-center">
+      <li class="page-item"><a class="page-link" href="#"><h6>Select</h6></a></li>
+      <li class="page-item"><a class="page-link" href="#"><h6>Review</h6></a></li>
+      <li class="page-item"><a class="page-link" href="#"><h6>Contact</h6></a></li>
+      <li class="page-item"><a class="page-link" href="#"><h6>Passenger</h6></a></li>
+      <li class="page-item disabled"><a class="page-link" href="#"><h6>Payment</h6></a></li>
+      <li class="page-item disabled"><a class="page-link" href="#"><h6>Confirmation</h6></a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-3 mb-5 w-50 bg-light text-dark rounded" >
+    <h3>Contact Information</h3>
+    <p>Please provide your contact information as accurately as possible. On this page, you can either Login
+       if you have a profile or simply progress as a guest by providing your contact information in the fields
+       below.</p>
+    <p>Note: The fields marked * are mandatory.</p>
+
+    
+        
+        <form action="#" method="post">
+          <div class="row">
+            <h5 style="margin-bottom: 15px;">LOGIN</h5>
+            <div class="col">
+              <label for="email" class="form-label">Email:</label>
+              <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
+            </div>
+            <div class="col">
+              <label for="pswd" class="form-label">Password:</label>
+              <input type="password" class="form-control" placeholder="Enter password" id="pswd" name="pswd" required>
+            </div>
+            <label class="form-check-label" style="margin-top: 10px; margin-bottom: 10px;">
+              <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+           <button type="submit" class="btn btn-dark" style="width: 20%; margin-left: 10px;
+            margin-top: 10px;">Login</button>
+          </div>
+        </form>
+          <div >
+            <br>
+            <h5 style="text-align: center;">OR</h5>
+            <br>
+          </div>
+
+        <form action="#">
+          <div class="row">
+            <h5 style="margin-bottom: 15px;">GUEST</h5>
+            <p>
+              <strong>Primary Contact Information</strong><br>
+              You will receive the Itinerary, Receipt and Boarding Pass for all passengers.
+            </p>
+            <div class="col">
+              <label for="fname" class="form-label">*First Name :</label>
+              <input type="text" class="form-control"  id="fname" name="fname" required>
+            </div>
+            <div class="col">
+              <label for="lname" class="form-label">*Last Name :</label>
+              <input type="text" class="form-control"  id="lname" name="lname" required>
+              
+            </div>
+            
+            <div>
+              <label for="address1" class="form-label" style="margin-top: 10px;">Address Line 1 :</label>
+              <input type="text" class="form-control" id="address1" name="address1" style="width: 75%;">
+            </div>
+            
+            <div>
+              <label for="address2" class="form-label" style="margin-top: 10px;"">Address Line 2 :</label>
+              <input type="text" class="form-control"  id="address2" name="address2" style="width: 75%;">
+            </div>
+
+            <div class="col">
+              <label for="city" class="form-label" style="margin-top: 10px;"">City :</label>
+              <input type="text" class="form-control"  id="city" name="city">
+            </div>
+
+            <div class="col">
+              <label for="zipcode" class="form-label" style="margin-top: 10px;"">*Postal/Zip Code :</label>
+              <input type="text" class="form-control"  id="zipcode" name="zipcode" required>
+            </div>
+
+            <div>
+              <label for="province" class="form-label" style="margin-top: 10px;"">*Province :</label>
+              <select name="province" id="province" class="form-select" style="width: 75%;" required>
+                <option selected disabled>Province</option>
+                <option value="Alberta">Alberta</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland ">Newfoundland </option>
+                <option value="Labrador">Labrador</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Prince Edward Island">Prince Edward Island</option>
+                <option value="Quebec">Quebec</option>
+                <option value="Saskatchewan">Saskatchewan</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label for="cnumber" class="form-label" style="margin-top: 10px;"">*Cell Phone Number :</label>
+              <input type="text" class="form-control"  id="cnumber" name="cnumber" required>
+            </div>
+
+            <div class="col">
+              <label for="email" class="form-label" style="margin-top: 10px;"">*Email Address :</label>
+              <input type="email" class="form-control"  id="email" name="email" style="margin-bottom: 15px;" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-dark w-25" style="margin-bottom: 15px;">Continue</button>
+            
+        </form>
+
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-sm-5 text-light" style="padding-left:35px; padding-top: 5px; background-color:#000000FF"> <p class="display-6">
+      <small><strong>About the Company</strong></small></p>
+    <p class="text-left">The ICTTS was founded in the year 2021. It is a publically listed company, with a network spanning to five major cities, here in 
+        Canada. At the heart of it lies the vision, 'Sustainability and Mobility'. We aim to become Canada's leaders of tomorrow - in transport and 
+        quality travel experience.
+    </p>
+    </div>
+  
+    <div class="col-sm-3 text-light " style="padding-left:25px; padding-top: 5px;background-color:#000000FF;">
+       <p class="display-6 text-start" style="text-align: center;"><small><strong>Social</strong></small></p>
+       <p> 
+        <a href="#"  style="text-decoration: none; color: white;">
+        <img class="img-fluid" src="../static/gmail.png" style="width:65px; " alt="Gmail logo">
+        </a>
+        <a href="#"  style="text-decoration: none; color: white;">
+         <img class="img-fluid" src="../static/facebook.png" style="width:55px;"  alt="Facebook logo">
+         </a>  
+         
+         <a href="#"  style="text-decoration: none; color: white;">
+         <img class="img-fluid" src="../static/instagram.png" style="width:60px;"  alt="Instagram logo"> 
+         </a>
+  
+         <a href="#" style="text-decoration: none; color: white;">
+         <img class="img-fluid" src="../static/twitter.png" style="width:55px;"  alt="Twitter logo"> 
+         </a>
+       </p>
+      </div>
+      <div class="col-sm-4 text-light " style="background-color:#000000FF; padding-top: 5px;">
+        <p class="display-6 text-start"><small><strong>Subscribe</strong></small></p>
+      <form action="#">
+        <div class="input-group mb-3 w-75">
+          <input type="email" class="form-control" placeholder="Email">
+          <button class="btn btn-primary" type="submit">Submit</button> 
+        </div>
+      </form> 
+  </div>
+  <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 13px 0px 3px 0px;">
+  <p style="font-size: large;">All Rights Reserved.</p>
+  </div>
+
+
+</body>
+</html>

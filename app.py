@@ -190,8 +190,8 @@ def fare():
         details = cur.fetchall()  
         details1 = list(details[0])
         fare = int(details1[7:8][0])* int(passengers)
-        gst = float(0.05 * fare)
-        pst = float(0.09 * fare)
+        gst = int(0.05 * fare)
+        pst = int(0.09 * fare)
         total = int((fare + gst + pst))
     
         return render_template('Fare_Details.html', origin_1=origin, destination_1=destination, date=date,
@@ -207,7 +207,7 @@ def fare():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     
-    return render_template('contact_info.html')
+    return render_template('Contact_Info1.html')
 
 guest_1 = []
 
