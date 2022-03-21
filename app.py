@@ -5,7 +5,7 @@ from types import CoroutineType
 from flask import Flask, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from rds import cur
+from rds import cur,conn
 import requests
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -170,8 +170,12 @@ def trip():
     else:
         return redirect(url_for('fare'))
   
+gst_1 =[]
+pst_1 =[]
+total_1 = []
+g_passenger = []  
+fare_1 = []
 
-    
 @app.route('/fare', methods=['GET', 'POST'])
 def fare():
 
@@ -179,6 +183,7 @@ def fare():
     destination = global_des.pop()
     date = global_dat.pop()
     passengers = global_pas.pop()
+    g_passenger.append(passengers)
     option = request.form['option']
     
     if origin==origin and destination==destination and option==option:
@@ -193,55 +198,73 @@ def fare():
         gst = int(0.05 * fare)
         pst = int(0.09 * fare)
         total = int((fare + gst + pst))
+        gst_1.append(gst)
+        pst_1.append(pst)
+        total_1.append(total)
+        fare_1.append(fare)
     
         return render_template('Fare_Details.html', origin_1=origin, destination_1=destination, date=date,
                                                 passengers=passengers, option=option, departure_time_1= details1[4:5][0],
                                                 arrival_time_1 = details1[5:6][0], duration_1= details1[6:7][0], train_1=option1, fare=fare,
                                                 gst=gst, pst=pst, total=total )
 
-    else:
-          
-            return redirect(url_for('contact'))
-
+        
+       
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     
     return render_template('Contact_Info1.html')
 
-guest_1 = []
+g_fname=[]  
+g_lname=[]
+g_address1=[]
+g_address2=[]
+g_city=[]
+g_zipcode=[]
+g_province=[]
+g_cnumber=[]
+g_email=[]
 
 
-@app.route('/contact2', methods=['GET', 'POST'])
-def contact2():
+@app.route('/guest', methods=['GET', 'POST'])
+def guest():
     fname= request.form.get('fname')
-    guest_1.append(fname)
-    print(guest_1)
-    # lname= request.form.get('lname')
-    # guest_1.append(lname)
-    # address1= request.form.get('address1')
-    # guest_1.append(address1)
-    # address2= request.form.get('address2')
-    # guest_1.append(address2)
-    # city= request.form.get('city')
-    # guest_1.append(city)
-    # zipcode= request.form.get('zipcode')
-    # guest_1.append(zipcode)
-    # province= request.form.get('province')
-    # guest_1.append(province)
-    # cnumber= request.form.get('cnumber')
-    # guest_1.append(cnumber)
-    # email= request.form.get('email')
-    # guest_1.append(email)
-  
-    return render_template('contact_info.html')
+    lname = request.form.get('lname')
+    address1=request.form.get('address1')
+    address2=request.form.get('address2')
+    city= request.form.get('city')
+    zipcode= request.form.get('zipcode')
+    province= request.form.get('province')
+    cnumber= request.form.get('cnumber')
+    email= request.form.get('email')
+    g_fname.append(fname)
+    g_lname.append(lname)
+    g_address1.append(address1)
+    g_address2.append(address2)
+    g_city.append(city)
+    g_zipcode.append(zipcode)
+    g_province.append(province)
+    g_cnumber.append(cnumber)
+    g_email.append(email)
+    
+    query = "INSERT INTO DATABASEPROJ.guest_user (fname,lname,address1,address2,city,zipcode,province,cnumber,email) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    tup1= (fname,lname,address1,address2,city,zipcode,province,cnumber,email) 
+    print(tup1)
+    cur.execute(query,tup1) 
+    conn.commit()
 
-# query = "INSERT INTO DATABASEPROJ.guest_user (fname) VALUES (%s)"
-# tup1= (f_name) 
-# print(tup1)
-# cur.execute(query,tup1) 
-# details = cur.fetchall()
-# print(details)
+    return render_template('Payment.html', passengers = g_passenger[0], gst=gst_1[0], pst=pst_1[0],total=total_1[0],
+                                            fare= fare_1[0])
+    
+
+    
+
+    
+
+# @app.route('/payment', method = ['GET', 'POST'])
+# def payment():
+#     return render_template('Payment.html')
 
 
 
