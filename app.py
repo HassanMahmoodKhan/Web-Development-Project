@@ -1,6 +1,7 @@
 import os
 import datetime
 from datetime import date
+from types import CoroutineType
 from flask import Flask, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -193,10 +194,54 @@ def fare():
         pst = float(0.09 * fare)
         total = int((fare + gst + pst))
     
-    return render_template('Fare_Details.html', origin_1=origin, destination_1=destination, date=date,
+        return render_template('Fare_Details.html', origin_1=origin, destination_1=destination, date=date,
                                                 passengers=passengers, option=option, departure_time_1= details1[4:5][0],
                                                 arrival_time_1 = details1[5:6][0], duration_1= details1[6:7][0], train_1=option1, fare=fare,
                                                 gst=gst, pst=pst, total=total )
+
+    else:
+          
+            return redirect(url_for('contact'))
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    
+    return render_template('contact_info.html')
+
+guest_1 = []
+
+
+@app.route('/contact2', methods=['GET', 'POST'])
+def contact2():
+    fname= request.form.get('fname')
+    guest_1.append(fname)
+    print(guest_1)
+    # lname= request.form.get('lname')
+    # guest_1.append(lname)
+    # address1= request.form.get('address1')
+    # guest_1.append(address1)
+    # address2= request.form.get('address2')
+    # guest_1.append(address2)
+    # city= request.form.get('city')
+    # guest_1.append(city)
+    # zipcode= request.form.get('zipcode')
+    # guest_1.append(zipcode)
+    # province= request.form.get('province')
+    # guest_1.append(province)
+    # cnumber= request.form.get('cnumber')
+    # guest_1.append(cnumber)
+    # email= request.form.get('email')
+    # guest_1.append(email)
+  
+    return render_template('contact_info.html')
+
+# query = "INSERT INTO DATABASEPROJ.guest_user (fname) VALUES (%s)"
+# tup1= (f_name) 
+# print(tup1)
+# cur.execute(query,tup1) 
+# details = cur.fetchall()
+# print(details)
 
 
 
