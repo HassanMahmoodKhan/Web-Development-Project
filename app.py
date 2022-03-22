@@ -314,7 +314,7 @@ def login_1():
         password1 = log_detail_1[3:4][0]
         print(email1, password1, email, password, log_detail_1)
         if email==email1 and password==password1:    
-            return render_template('Home.html')
+            return render_template('Home(new).html')
         else:
             return redirect(url_for('signup'))
         
