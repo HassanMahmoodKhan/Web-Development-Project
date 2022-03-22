@@ -1,0 +1,64 @@
+*{
+    margin: 5;
+    padding: 5;
+}
+.header
+{
+    height:100vh;
+
+}
+.navbar-style
+{
+  box-shadow:0 5px 10px #efefef ;
+    background-color:rgb(25, 25, 59);
+    text-transform: uppercase;
+    text-align: left;
+    
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.logo
+{
+     height: 150px;
+     padding: 10px 10px;
+     position: relative;
+}
+.icon-bar
+{
+    background:darkgoldenrod;
+}
+.image
+{height: 300px;
+    width: 1000px;
+    
+    position:absolute;
+
+}
+.big-text
+{
+    font-size: 52px;
+    margin-inline;
+    color: darkorange;
+
+}
+
+.headers
+{
+    font-size: 40px;
+    margin-left: auto;
+    color: darkblue;
+}
+.paragraph{
+    font-size: 20px;
+    margin-left: auto;
+    color:darkgray;
+}
+.navbar-text{
+    color: bisque;
+    font-size: medium;
+}
