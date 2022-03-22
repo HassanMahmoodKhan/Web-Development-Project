@@ -90,6 +90,10 @@ def Home():
 @app.route('/About')
 def About():
     return render_template('About.html') 
+
+@app.route('/Covid')
+def covid():
+    return render_template('index.html') 
 # trp1 =(trip_data.query.all())
 
 trp1 = trip_data.query.filter_by(origin='Toronto', destination='Montreal').all()
