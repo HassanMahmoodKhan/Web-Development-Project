@@ -256,6 +256,94 @@ def guest():
 
     return render_template('Payment.html', passengers = g_passenger[0], gst=gst_1[0], pst=pst_1[0],total=total_1[0],
                                             fare= fare_1[0])
+
+@app.route('/signup',  methods=['GET', 'POST'])
+def signup():
+    return render_template('reg.html')
+
+@app.route('/signup1',  methods=['GET', 'POST'])
+def signup1():
+    fname = request.form.get('first_name')
+    lname = request.form.get('last_name')
+    password = request.form.get('password')
+    email = request.form.get('email')
+    area_code = request.form.get('area_code')
+    phone = request.form.get('phone')
+    country = request.form.get('country')
+    print(fname,lname, password, email, area_code, phone, country)
+    tup1 = (email)
+    query = "SELECT * FROM DATABASEPROJ.registration_info WHERE email_id = %s"
+    cur.execute(query,tup1)
+    log_detail = list(cur.fetchall())
+    email1 = log_detail[4:5]
+    
+    if email==email1 :
+        return redirect(url_for('login'))
+
+    else:
+        query = "INSERT INTO DATABASEPROJ.registration_info (first_name,last_name,password,email_id,area_code,phone_number,country) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+        tup1= (fname,lname,password,email,area_code,phone,country) 
+        print(tup1)
+        cur.execute(query,tup1) 
+        conn.commit()
+
+        return redirect(url_for('Home'))
+
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
+
+@app.route('/login_1', methods=['GET', 'POST'])
+def login_1():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    
+    query = "SELECT * FROM DATABASEPROJ.registration_info WHERE email_id = %s AND password= %s"
+    tup1 = (email, password)
+    cur.execute(query,tup1)
+    log_detail = list(cur.fetchall())
+    
+    if log_detail == []:
+        return redirect(url_for('signup'))
+    
+    if log_detail != []:
+        log_detail_1 = log_detail[0]
+        email1 = log_detail_1[4:5][0]
+        password1 = log_detail_1[3:4][0]
+        print(email1, password1, email, password, log_detail_1)
+        if email==email1 and password==password1:    
+            return render_template('Home.html')
+        else:
+            return redirect(url_for('signup'))
+        
+
+@app.route('/login2', methods=['GET', 'POST'])
+def login2():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    
+    query = "SELECT * FROM DATABASEPROJ.registration_info WHERE email_id = %s AND password= %s"
+    tup1 = (email, password)
+    cur.execute(query,tup1)
+    log_detail = list(cur.fetchall())
+    
+    if log_detail == []:
+        return redirect(url_for('signup'))
+    
+    if log_detail != []:
+        log_detail_1 = log_detail[0]
+        email1 = log_detail_1[4:5][0]
+        password1 = log_detail_1[3:4][0]
+        print(email1, password1, email, password, log_detail_1)
+        if email==email1 and password==password1:
+            return render_template('Payment.html', passengers = g_passenger[0], gst=gst_1[0], pst=pst_1[0],total=total_1[0],
+                                                fare= fare_1[0])
+        else:
+            return redirect(url_for('signup'))
+    
+
     
 
     

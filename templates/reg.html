@@ -360,7 +360,7 @@ border: 1px solid;
 
 
 
-                <form>
+                <form action="{{url_for('signup1')}}" method="POST">
                     <div id="name">
                       <h2 class="name">Name</h2>
 
@@ -374,10 +374,10 @@ border: 1px solid;
                              <h2 class="name">Password</h2>
 
 
-                             <input class="Min" type="text" name="min"><br>
+                             <input class="Min" type="text" name="password"><br>
                                  <label class="firstlabel">Min 8 Char </label>
        
-                                  <input class="ConPass" type="text" name="Con Pass"><br>
+                                  <input class="ConPass" type="text" name="password"><br>
                                     <label class="lastlabel">Confirm Password</label>
 
 
@@ -421,7 +421,7 @@ border: 1px solid;
 
                 <div class="form-row">
                   <div class="col-lg-7">
-                      <button type="button" class="btn1 mt-3 mb-5">Create My Profile</button>
+                      <button type="submit" class="btn1 mt-3 mb-5">Create My Profile</button>
               
                    </div>
                
