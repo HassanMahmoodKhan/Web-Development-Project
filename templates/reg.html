@@ -1,444 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-
-<title>Reg Page</title>
-
-
-<style type="text/css" >
-
-  *{
-  padding: 0px;
-  margin:0;
-  box-sizing: border-box;
+  <title>Reg Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  .btn:hover {
+    background-color: #2035f1;
+    color: white;
   }
-  
-.regform
-{
-
-width: 800px;
-
-background-color: rgb(87, 158, 183);
-margin:auto;
-
-color: azure;
-padding: 10px 0px 10px 0px;
-text-align: center;
-border-radius: 15px 15px 0px 0px;
-
-
-
-
-}
-
-
-
-.main{
-
-
-width: 800px;
-
-background-color: rgb(87, 158, 183);
-margin: auto;
-
-  
-}
-
-
-
-
-.form
-{
-
-padding: 10px;
-
-
-}
-
-#name{
-  width: 100%;
-  height: 620px;
-
-
-
-}
-
-
-.name{
-
-
-margin-left:25px ;
-margin-top: 10px;
-width: 125px;
-color:white;
-font-size: 18px;
-font-weight:700 ;
-
-}
-
-
-.firstname{
-
-
-position: relative;
-left: 200px;
-top: -10px;
-line-height: 30px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px;
-
-}
-
-
-
-.lastname{
-
-
-position: relative;
-left: 400px;
-top: -45px;
-line-height: 30px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px;
-
-}
-
-
-.firstlabel{
-
-
-  position: relative;
-  color: #e5e5e5;
-  text-transform: capitalize;
-  font-size: 14px;
-
-  left: 218px;
-  top: -18px;
-
-}
-.lastlabel{
-
-
-position: relative;
-color: #e5e5e5;
-text-transform: capitalize;
-font-size: 14px;
-
-left: 503px;
-top: -45px;
-
-}
-
-
-.Min{
-
-
-position: relative;
-left: 200px;
-top: -10px;
-line-height: 30px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px;
-
-}
-
-
-
-.ConPass{
-
-
-position: relative;
-left: 400px;
-top: -45px;
-line-height: 30px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px;
-
-}
-
-
-
-
-
-
-
-
-.email{
-  position: relative;
-left: 200px;
-top: -10px;
-line-height: 30px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px
-
-
-}
-
-
-
-
-
-
-.code{
-
-
-position: relative;
-left: 200px;
-top: -10px;
-line-height: 30px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px;
-
-}
-
-
-
-.number
-{
-
-
-position: relative;
-left: 250px;
-top: -15px;
-line-height: 30px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px;
-
-}
-
-
-.area-code
-
-{
-  position: relative;
-  color: #e5e5e5;
-  text-transform: capitalize;
-  font-size: 14px;
-
-  left: 50px;
-  top: 20px;
-
-
-
-}
-
-
-.phone-number
-{
-  position: relative;
-color: #e5e5e5;
-text-transform: capitalize;
-font-size: 14px;
-
-left: 100px;
-top: 20px;
-
-
-
-
-}
-
-
-.option{
-
-
-
-  position: relative;
-left: 200px;
-top: -10px;
-line-height: 40px;
-border-radius: 6px;
-
-width: 532px;
-border-radius: 6px;
-padding: 0 15px;
-font-size: 10px;
-color: #555;
-outline: none;
-overflow: hidden;
-
-
-}
-
-.option option{
-
-font-size: 10px;
-
-}
-
-.btn1{
-
-border: 0;
-outline: 0;
-left:500px;
-height: 20px;
-width: 20%;
-text-align: center;
-background-color: black;
-color: white;
-border-radius: 40px;
-font-weight: bold;
-
-
-}
-   .btn1:hover{
-background: white;
-border: 1px solid;
- color: black;
- }
-
-
-
-
-
-
-
-
-
-
-
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <body>
-  
-       <div class="regform"> <h1> Create Profile</h1></div>
-                   <div class="main">
-
-
-
-
-                <form action="{{url_for('signup1')}}" method="POST">
-                    <div id="name">
-                      <h2 class="name">Name</h2>
-
-
-                      <input class="firstname" type="text" name="first_name"><br>
-                          <label class="firstlabel">first name</label>
-
-                           <input class="lastname" type="text" name="last_name"><br>
-                             <label class="lastlabel">last name</label>
-                             
-                             <h2 class="name">Password</h2>
-
-
-                             <input class="Min" type="text" name="password"><br>
-                                 <label class="firstlabel">Min 8 Char </label>
-       
-                                  <input class="ConPass" type="text" name="password"><br>
-                                    <label class="lastlabel">Confirm Password</label>
-
-
-
-
-
-
-                             <h2 class="name">Email</h2>
-
-                      <input class="email" type="text" name="email"><br>
-
-                      <h2 class="name">Phone</h2>
-
-                      <input class="code" type="text" name="area_code">
-                      <label class="area-code">Area Code</label>
-                      <input class="number" type="text" name="phone">
-                      <label class="phone-number">Phone Number</label>
-
-
-                      <h2 class="name">Country</h2>
-                      <select class="option" name="country">
-                        <option disabled="disabled" selected="selected">--choose Option</option>
-<option>India</option>
-<option>Pakistan</option>
-<option>Canada</option>                      
-                      </select>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-                </form>
-
-                <div class="form-row">
-                  <div class="col-lg-7">
-                      <button type="submit" class="btn1 mt-3 mb-5">Create My Profile</button>
-              
-                   </div>
-               
-            </div>
+    </style>
+</head>
+<body style="background-image: url(image.jpg);">
+    <header>
+      <div class="alert text" style="margin: 0px 0px 0px 0px; padding: 25px; text-align: center; font-size: large;
+      background-image: linear-gradient(to right, #d8007e , #9100e5 );">
+          <strong>Register Yourself!!</strong>  
+        </div>
+  </header>
+
+  <div class="container-fluid" style="padding-top: 20px;">
+    
+  </div>
+
+  <div class="container mt-3 mb-5 w-50 bg-light text-dark rounded" >
+    
+
+    
         
+        <form action="{{url_for('login2')}}" method="POST">
+          <div class="row">
+            
+            
+        
+          </div>
+        </form>
+         
+
+        <form action="{{url_for('signup1')}}" method="POST">
+          <div class="row">
+            <h5 style="margin-bottom: 15px;">CREATE PROFILE</h5>
+            <p>
+              <strong>Primary Contact Information</strong><br>
+                          </p>
+            <div class="col">
+              <label for="fname" class="form-label">*First Name :</label>
+              <input type="text" class="form-control"  id="fname" name="first_name" required>
+            </div>
+            <div class="col">
+              <label for="lname" class="form-label">*Last Name :</label>
+              <input type="text" class="form-control"  id="lname" name="last_name" required>
+              
+            </div>
+            <fieldset>
+              <div>
+                <label for="address1" class="form-label" style="margin-top: 10px;">*Password :</label>
+                <input type="password" class="form-control" id="address1" name="password" style="width: 75%" required>
+              </div>
+              
+              <!-- <div>
+                <label for="address1" class="form-label" style="margin-top: 10px;">*Confirm Password :</label>
+                <input type="password" class="form-control" id="address1" name="password" style="width: 75%;" required>
+              </div> -->
+            </fieldset>
+            <div>
+              <label for="address2" class="form-label" style="margin-top: 10px;"> *Email :</label>
+              <input type="email" class="form-control"  id="address2" name="email" style="width: 75%;" required>
+            </div>
 
 
 
+            <div>
+              <label for="province" class="form-label" style="margin-top: 10px;">*Province :</label>
+              <select name="province_1" id="province" class="form-select" style="width: 75%;" required>
+                <option selected disabled>Province</option>
+                <option value="Alberta">Alberta</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland ">Newfoundland </option>
+                <option value="Labrador">Labrador</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Prince Edward Island">Prince Edward Island</option>
+                <option value="Quebec">Quebec</option>
+                <option value="Saskatchewan">Saskatchewan</option>
+              </select>
+            </div>
 
-
-
-
-
-
-
-
-
-
-  </body>
+            <div class="col">
+              <label for="cnumber" class="form-label" style="margin-top: 10px;">*Cell Phone Number :</label>
+              <input type="text" class="form-control"  id="cnumber" name="phone" style="width: 75%;"required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-dark w-25" style="margin:15px 0px 20px 0px;">Create My Profile</button>
+        </form>
+  </div>
+  <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 13px 0px 5px 0px;margin-top: 112px;">
+    <p style="font-size: large;">All Rights Reserved.</p>
+    </div>
+</body>
 </html>

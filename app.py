@@ -188,10 +188,10 @@ def signup1():
     lname = request.form.get('last_name')
     password = request.form.get('password')
     email = request.form.get('email')
-    area_code = request.form.get('area_code')
+    
     phone = request.form.get('phone')
-    country = request.form.get('country')
-    print(fname,lname, password, email, area_code, phone, country)
+    province = request.form.get('province_1')
+    print(fname,lname, password, email,  phone, province)
     tup1 = (email)
     query = "SELECT * FROM DATABASEPROJ.registration_info WHERE email_id = %s"
     cur.execute(query,tup1)
@@ -202,8 +202,8 @@ def signup1():
         return redirect(url_for('login'))
 
     else:
-        query = "INSERT INTO DATABASEPROJ.registration_info (first_name,last_name,password,email_id,area_code,phone_number,country) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-        tup1= (fname,lname,password,email,area_code,phone,country) 
+        query = "INSERT INTO DATABASEPROJ.registration_info (first_name,last_name,password,email_id,phone_number, province) VALUES (%s,%s,%s,%s,%s,%s)"
+        tup1= (fname,lname,password,email, phone, province) 
         print(tup1)
         cur.execute(query,tup1) 
         conn.commit()
