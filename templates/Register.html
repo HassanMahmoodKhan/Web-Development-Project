@@ -16,35 +16,24 @@
 <body style="background-image: url(image.jpg);">
     <header>
       <div class="alert text" style="margin: 0px 0px 0px 0px; padding: 25px; text-align: center; font-size: large;
-      background-image: linear-gradient(to right, #d8007e , #9100e5 );">
-          <strong>Register Yourself!!</strong>  
+      background-image: linear-gradient(to right, #00B7D8 , #00E54B);">
+          <strong>Covid-19</strong> | For all travel related announcements,<a href="{{url_for('covid')}}" class="alert-link" 
+          style="text-decoration: none; color: black;"> click here!</a>
         </div>
+  
   </header>
 
-  <div class="container-fluid" style="padding-top: 20px;">
-    
-  </div>
 
-  <div class="container mt-3 mb-5 w-50 bg-light text-dark rounded" >
+  <div class="container mt-4 mb-4 w-50 bg-light text-dark rounded" >
     
-
-    
-        
-        <form action="{{url_for('login2')}}" method="POST">
-          <div class="row">
-            
-            
-        
-          </div>
-        </form>
-         
+      
 
         <form action="{{url_for('signup1')}}" method="POST">
           <div class="row">
-            <h5 style="margin-bottom: 15px;">CREATE PROFILE</h5>
+            <h4 style="margin-bottom: 15px;">Create Profile</h4>
             <p>
-              <strong>Primary Contact Information</strong><br>
-                          </p>
+              <strong>Primary Contact Information.</strong><br>
+            </p>
             <div class="col">
               <label for="fname" class="form-label">*First Name :</label>
               <input type="text" class="form-control"  id="fname" name="first_name" required>
@@ -98,8 +87,9 @@
           <button type="submit" class="btn btn-dark w-25" style="margin:15px 0px 20px 0px;">Create My Profile</button>
         </form>
   </div>
-  <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 13px 0px 5px 0px;margin-top: 112px;">
-    <p style="font-size: large;">All Rights Reserved.</p>
+  
+  <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 13px 0px 5px 0px;position:relative; bottom: 0;">
+    <p style="font-size:18px;">All Rights Reserved.</p>
     </div>
 </body>
 </html>

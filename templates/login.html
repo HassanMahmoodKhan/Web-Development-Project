@@ -11,33 +11,30 @@
     background-color: #2035f1;
     color: white;
   }
-.registerr{
-position: relative;
-left: 400px;
-top: -95px;
-}
+
 
 </style>
 </head>
 <body style="background-image:url(image.jpg);">
     <header>
-      <div class="alert text" style="margin: 0px 0px 0px 0px; padding: 15px; text-align: center; font-size: large;
-      background-image: linear-gradient(to right, #009bd8 , #749221 );">
-<strong>User Login!!</strong>  
-</div>
+      <div class="alert text" style="margin: 0px 0px 0px 0px; padding: 25px; text-align: center; font-size: large;
+    background-image: linear-gradient(to right, #00B7D8 , #00E54B);">
+        <strong>Covid-19</strong> | For all travel related announcements,<a href="{{url_for('covid')}}" class="alert-link" 
+        style="text-decoration: none; color: black;"> click here!</a>
+      </div>
+
 </header>
-<div class="container-fluid" style="padding-top: 20px;">
-</div>
-<div class="container mt-3 mb-5 w-50 bg-light text-dark rounded" >
+
+<div class="container mt-5 mb-5 w-50 bg-light text-dark rounded" style="padding: 10px 0px 20px 20px;" >
 <form action="{{url_for('login2')}}" method="POST">
 <div class="row">
 </div>
 </form>
 <form action="{{url_for('login_1')}}" method="POST">
 <div class="row">
-<h5 style="margin-bottom: 15px;">Sign into your account</h5>
+<h4 style="margin-bottom: 15px;">Sign into your account</h4>
 <p>
-<strong>All fields are required</strong><br>
+<strong>All fields are required.</strong><br>
 </p>
 <div>
 <label for="address2" class="form-label" style="margin-top: 10px;"> *Email :</label>
@@ -48,13 +45,12 @@ top: -95px;
 <input type="password" class="form-control" id="address1" name="password" style="width: 75%;">
 </div>
 </div>
-<button type="submit" class="btn btn-dark w-25" style="margin:15px 0px 70px 0px;">Login</button>
+<button type="submit" class="btn btn-dark w-25" style="margin:15px 0px 15px 0px;">Login</button>
+<div>Don't have an account? <a href="{{url_for('signup')}}">Register here</a></div>
 </div>
-<label class="registerr">Don't have an account? <a href="{{url_for('signup')}}">Register here</a>
-</label>
 </form>
-  <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 13px 0px 5px 0px;margin-top: 132px;">
-    <p style="font-size: large;">All Rights Reserved.</p>
+  <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 10px 0px 5px 0px; position: fixed; bottom: 0;">
+    <p style="font-size: 18px;">All Rights Reserved.</p>
     </div>
 </body>
 </html>
