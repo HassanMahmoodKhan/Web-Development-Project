@@ -34,13 +34,13 @@
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto"> 
           <li class="nav-item">
-            <a class="nav-link text-light" href="#" style="padding: 10px 20px; font-size: 22px; font-weight:600;">Home</a>
+            <a class="nav-link text-light" href="{{url_for('Home')}}" style="padding: 10px 20px; font-size: 22px; font-weight:600;">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#" style="padding: 10px 20px; font-size: 22px; font-weight:600">About</a>
+            <a class="nav-link text-light" href="{{url_for('About')}}" style="padding: 10px 20px; font-size: 22px; font-weight:600">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#" style="padding: 10px 20px; font-size: 22px; font-weight:600">Contact</a>
+            <a class="nav-link text-light" href="{{url_for('contact_us')}}" style="padding: 10px 20px; font-size: 22px; font-weight:600">Contact</a>
           </li>
         </ul>
            <li class="nav-item dropdown">
@@ -84,7 +84,7 @@ background-position: center; max-width: 100% ; height: auto;">
     </section>
     <br>
     <section>
-    <input class="form-select" type="date" name="date" placeholder="Date" required>
+    <input class="form-select" type="date" name="date" min="{{today}}" placeholder="Date" required>
     <br>
     <input class="form-select" type="number" min=1 name="passengers" placeholder="Passengers" required>
     <br>
