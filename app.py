@@ -1,21 +1,26 @@
 import os
 from flask import Flask, redirect, render_template, request, url_for
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from datetime import datetime
 from rds import cur,conn
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
+today = datetime.today().strftime('%Y-%m-%d')
 
 app = Flask(__name__)
 
 @app.route('/')
 def Home():
-    return render_template('Home(new).html')
+    return render_template('Home(new).html', today= today)
 
 
 @app.route('/About')
 def About():
-    return render_template('About.html') 
+    return render_template('about1.html') 
+
+@app.route('/Contact_Us')
+def contact_us():
+    return render_template('contact.html')
 
 @app.route('/Covid')
 def covid():
@@ -32,6 +37,7 @@ def trip():
     destination= request.form.get('destination')
     date= request.form.get('date')
     passengers= request.form.get('passengers')
+
     if origin != None:
         global_ori.insert(0, origin)
     if destination != None:
@@ -42,6 +48,9 @@ def trip():
         global_pas.insert(0, passengers)
 
     print(global_ori, global_des,global_dat, global_pas)
+
+    if global_ori[0]==global_des[0]:
+        return redirect(url_for('Home'))
 
     if global_ori[0] == global_ori[0] and global_des[0] == global_des[0]:
     
