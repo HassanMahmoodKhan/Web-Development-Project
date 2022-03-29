@@ -189,7 +189,7 @@ def guest():
 
 @app.route('/signup',  methods=['GET', 'POST'])
 def signup():
-    return render_template('reg.html')
+    return render_template('Register.html')
 
 @app.route('/signup1',  methods=['GET', 'POST'])
 def signup1():
