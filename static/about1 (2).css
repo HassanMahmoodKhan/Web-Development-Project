@@ -43,7 +43,7 @@
 .section{
 	width: 100%;
 	min-height: 100vh;
-	background: url(train.jpg);
+	background: url(train_about.jpg);
     background-size: cover;
 	background-image: moz-linear-gradient();
 }
