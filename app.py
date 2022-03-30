@@ -3,6 +3,7 @@ from flask import Flask, redirect, render_template, request, url_for
 from datetime import datetime
 from rds import cur,conn
 
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
