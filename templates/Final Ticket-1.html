@@ -30,7 +30,7 @@
             </div>
           </nav>
   </header>
-
+  <form>
   <div class="container-fluid" style="padding-top: 20px;">
     <ul class="pagination pagination-lg justify-content-center">
       <li class="page-item"><a class="page-link" href="{{url_for('Home')}}"><h6>Search</h6></a></li>
@@ -117,11 +117,11 @@
       </div>
     <div>
         <br>
-        <p>Use <kbd>ctrl + p</kbd> to open the Print dialog box and save the e-ticket.</p>
+        <button type="button" onclick="window.print()"> <kbd>Click here to print the e-ticket</kbd> </button>
     </div>
     
 </div>
-
+</form>
 
   <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 13px 0px 3px 0px; position: relative; bottom: 0%;">
   <p style="font-size: large;">All Rights Reserved.</p>
