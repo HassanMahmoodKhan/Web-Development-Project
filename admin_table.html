@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href='https://css.gg/css' rel='stylesheet'>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <meta name="viewreport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  <link rel="stylesheet" type="text/css" href="admin_table.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-style">
+    <div class="nav-container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href=""><img class="logo1" src="logo1.png"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="micon">
+
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a class="navbar-text" href="{{url_for('Home')}}">HOME</a></li>
+        <li><a class="navbar-text" href="{{url_for('Contact')}}">CONTACT</a></li>
+        
+        <li><a class="navbar-text" href="{{url_for('login')}}">LOGIN</a></li>
+
+      </ul>
+    </div>
+    </div>
+  </nav>
+
+
+
+  <div class="table-container">
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Points</th>
+          <th>Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Domenic</td>
+          <td>88,110</td>
+          <td>dcode</td>
+        </tr>
+        <tr class="active-row">
+          <td>2</td>
+          <td>Sally</td>
+          <td>72,400</td>
+          <td>Students</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Nick</td>
+          <td>52,300</td>
+          <td>dcode</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Domenic</td>
+          <td>88,110</td>
+          <td>dcode</td>
+        </tr>
+        <tr class="active-row">
+          <td>2</td>
+          <td>Sally</td>
+          <td>72,400</td>
+          <td>Students</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Domenic</td>
+          <td>88,110</td>
+          <td>dcode</td>
+        </tr>
+        <tr class="active-row">
+          <td>2</td>
+          <td>Sally</td>
+          <td>72,400</td>
+          <td>Students</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Domenic</td>
+          <td>88,110</td>
+          <td>dcode</td>
+        </tr>
+        <tr class="active-row">
+          <td>2</td>
+          <td>Sally</td>
+          <td>72,400</td>
+          <td>Students</td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Domenic</td>
+          <td>88,110</td>
+          <td>dcode</td>
+        </tr>
+        <tr class="active-row">
+          <td>2</td>
+          <td>Sally</td>
+          <td>72,400</td>
+          <td>Students</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
