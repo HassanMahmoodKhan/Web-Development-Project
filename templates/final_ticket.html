@@ -46,7 +46,7 @@
   <div class= "container-fluid p-3 mt-3 mb-3 w-75 bg-light text-dark rounded">    
             
     <h3 style="padding-bottom: 10px; padding-top: 0px;">E-Ticket Receipt</h3>
-    <p><strong>Ticket Number:</strong> 0000012</p> Dear <strong> Mr. Hassan Mahmood </strong>
+    
     <br> Thank you for choosing ICTTS.
     <br> We look forward to welcoming you onboard.    
     <div>
@@ -65,16 +65,16 @@
         <th>Departs</th>
         <th>Arrives</th>
         <th>Class</th>
-        <th>Not Valid</th>
+        <th>Passengers</th>
       </tr>
     </thead>
     <tbody>
       <tr style="font-style: italic;">
-        <td>04<br>Confirmed</td>
-        <td>Montreal <br>23 April 2022 <br> 12:00</td>
-        <td>Toronto <br>23 April 2022 <br> 18:00</td>
-        <td>Economy <br> Baggage <br>Allowance <br> 2 Pieces</td>
-        <td>Before - 23 April <br>After - 
+        <td>{{train_no}}<br>Confirmed</td>
+        <td>{{origin}} <br>{{date}} <br> {{departure_time}}</td>
+        <td>{{destination}}  <br> {{arrival_time}}</td>
+        <td>{{seat_class}} <br> Baggage <br>Allowance <br> 2 Pieces</td>
+        <td>{{passenger}} <br>
         </td>
       </tr>
       
@@ -94,9 +94,9 @@
       </thead>
       <tbody>
         <tr style="font-style: italic;">
-          <td>Ticket Fare: CAD 99<br>Total: CAD 110 <br>
-          Payment: CREDIT CARD</td>
-          <td>Date of Purchase: 23 April 2022 <br>Visit: www.ictts.com.ca</td>
+          <td>Ticket Fare: CAD {{fare}}<br>Total: CAD {{total_fare}} <br>
+          Payment: CREDIT/DEBIT CARD</td>
+          <td>Date of Purchase: {{date_p}} <br>Visit: www.ictts.com.ca</td>
         </tr>
         
         

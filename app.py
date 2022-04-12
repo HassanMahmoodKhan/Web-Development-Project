@@ -1,6 +1,9 @@
 import os
 from flask import Flask, redirect, render_template, request, url_for
 from datetime import datetime
+import xlwt
+import pandas.io.sql as sql
+from sqlalchemy import null
 from rds import cur,conn
 
 
@@ -9,10 +12,10 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 app = Flask(__name__)
-
+today = datetime.today().strftime('%Y-%m-%d')
 @app.route('/')
 def Home():
-    today = datetime.today().strftime('%Y-%m-%d')
+    
     return render_template('Home(new).html', today= today)
 
 
@@ -134,6 +137,8 @@ def fare():
         pst_1.insert(0, pst)
         total_1.insert(0, total)
         fare_1.insert(0, fare)
+        departure_time.insert(0, details1[4:5][0])
+        arrival_time.insert(0, details1[5:6][0])
     
         return render_template('Fare_Details.html', origin_1=origin, destination_1=destination, date=date,
                                                 passengers=passengers, option=option[0], departure_time_1= details1[4:5][0],
@@ -148,9 +153,7 @@ def contact():
     
     return render_template('Contact_Info1.html')
 
-@app.route('/Final Ticket', methods=['GET', 'POST'])
-def final_ticket():
-    return render_template('final_ticket.html')
+
 
 g_fname=[]  
 g_lname=[]
@@ -240,7 +243,7 @@ def login_1():
     tup1 = (email, password)
     cur.execute(query,tup1)
     log_detail = list(cur.fetchall())
-    
+    t_name.insert(0, log_detail[0][1:2][0])
     if log_detail == []:
         return redirect(url_for('signup'))
     
@@ -272,14 +275,45 @@ def login2():
         log_detail_1 = log_detail[0]
         email1 = log_detail_1[4:5][0]
         password1 = log_detail_1[3:4][0]
+        t_name.insert(0, log_detail_1[1:2][0])
         print(email1, password1, email, password, log_detail_1)
         if email==email1 and password==password1:
             return render_template('Payment.html', passengers = g_passenger[0], gst=gst_1[0], pst=pst_1[0],total=total_1[0],
                                                 fare= fare_1[0])
         else:
             return redirect(url_for('signup'))
+
+departure_time= []
+arrival_time= []
+total_1 = []
+g_passenger = []  
+fare_1 = []
+option = []
+t_name = []
+print(t_name)
+print(g_fname)
+
+@app.route('/Final Ticket', methods=['GET', 'POST'])
+def final_ticket():
     
 
+    return render_template('final_ticket.html', passenger= g_passenger[0] , train_no= option[0] , origin= global_ori[0] , destination= global_des[0] ,
+                                                date= global_dat[0] , departure_time= departure_time[0] ,arrival_time= arrival_time[0] , seat_class= option[0] ,
+                                                fare= fare_1[0], total_fare= total_1[0], date_p = today)
+
+@app.route('/Admin', methods=['GET', 'POST'])
+def admin():
+    return render_template('Admin Signin.html')
+
+@app.route('/Admin Reports', methods=['GET', 'POST'])
+def admin2():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    if email == 'admin@gmail.com' and password == 'admin123':
+        return render_template('Admin Profile.html')
+        
+   
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
