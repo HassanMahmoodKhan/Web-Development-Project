@@ -1,0 +1,87 @@
+* {
+    font-family: sans-serif; /* Change your font family */
+  }
+   
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.navbar-style
+{
+  	box-shadow: 0 5px 10px #efefef ;
+    background-color :rgb(25, 25, 61);
+    text-transform: uppercase;
+    text-align: left;
+    
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.logo
+{
+     height: 150px;
+     padding: 10px 10px;
+     position: relative;
+}
+.icon-bar
+{
+    background:darkgoldenrod;
+}
+
+
+  .table-container
+  {
+    margin-left: 100px;
+    padding-top: 50px;
+  }
+  .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+    padding: 12px 150px;
+  }
+  
+  .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+  
