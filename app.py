@@ -148,6 +148,10 @@ def contact():
     
     return render_template('Contact_Info1.html')
 
+@app.route('/Final Ticket', methods=['GET', 'POST'])
+def final_ticket():
+    return render_template('final_ticket.html')
+
 g_fname=[]  
 g_lname=[]
 g_address1=[]
