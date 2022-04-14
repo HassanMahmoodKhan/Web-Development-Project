@@ -34,40 +34,36 @@
 
 <div class="container mt-4 mb-4 p-3 bg-light" style="max-width: 40%;">
   <h3 style="margin-bottom: 15px;">Add Trip</h3>
-  <form action="{{url_for('fare')}}" method="POST" >   
+  <form action="{{url_for('add_trip1')}}" method="POST" >   
     <section>
-        <select class="form-select" name="origin"  required >
-        <option selected disabled>Origin</option>
-        <option value="Toronto">Toronto</option>
-        <option value="Montreal">Montreal</option>
-        <option value="Ottawa">Ottawa</option>
-        <option value="Vancouver">Vancouver</option>
-        <option value="Mississauga">Mississauga</option>
-      </select>
+        <label for="departure" style="padding-bottom: 10px;">Origin</label>
+        <input class="form-control" type="text" name="origin" placeholder="Origin" required>  
       </section>
       <br>
       <section>
-        <select class="form-select" name="destination"  required>
-      <option selected disabled>Destination</option>
-        <option value="Toronto">Toronto</option>
-        <option value="Montreal">Montreal</option>
-        <option value="Ottawa">Ottawa</option>
-        <option value="Vancouver">Vancouver</option>
-        <option value="Mississauga">Mississauga</option>
-        </select>
+        <label for="departure" style="padding-bottom: 10px;">Destination</label>
+        <input class="form-control" type="text" name="destination" placeholder="Destination" required>  
       </section>
       <br>
       <section>
-      <input class="form-select" type="date" name="date" min="{{today}}" placeholder="Date"  required>
-      <br>
+      
       <label for="departure" style="padding-bottom: 10px;">Departure Time</label>
-      <input class="form-control" type="time" name="departure" placeholder="Departure Time"  required>
+      <input class="form-control" type="time" name="departure_time" placeholder="Departure Time"  required>
       <br>
       <label for="arrival" style="padding-bottom: 10px;">Arrival Time</label>
-      <input class="form-control" type="time" name="arrival" placeholder="Arrival Time"   required>
+      <input class="form-control" type="time" name="arrival_time" placeholder="Arrival Time"   required>
       <br>
+      <label for="departure" style="padding-bottom: 10px;">Duration</label>
       <input class="form-control" type="text" name="duration" placeholder="Duration"   required>
       <br>
+      <label for="departure" style="padding-bottom: 10px;">Train Number</label>
+      <input class="form-control" type="number" min="1" max="4" name="train_no" placeholder="Train Number"   required>
+      <br>
+      <label for="departure" style="padding-bottom: 10px;">Economy Fare</label>
+      <input class="form-control" type="number" name="economy_fare" placeholder="Economy Fare"   required>
+      <br>
+      <label for="departure" style="padding-bottom: 10px;">Buissness Fare</label>
+      <input class="form-control" type="number" name="buisness_fare" placeholder="Buissness Fare"   required>
       </section>
 
         <button type="submit" class="btn btn-dark" >Continue</button>

@@ -18,7 +18,7 @@
       <a class="navbar-brand" href="#" style="color: white;"> Welcome, <strong>Priyesh Bhalala</strong></a>
            
           <a class="btn btn-primary" style=" font-size: 16px; font-weight:600"
-            href="#" role="button">Log Out</a>
+            href="{{url_for('Home')}}" role="button">Log Out</a>
            </li>
       </div>
     </div>
@@ -32,19 +32,23 @@
 <div class="container-fluid mt-3 mb-4 " style="margin-left: 15px; margin-right: 15px;">
   
   <div class="row">
-   
+    
       <div class="col-sm">
-        <div class="card text-light" style="width:280px; height: 400px; margin: 20px 0px 10px 0px; background-color: black;">
-          <img class="card-img-top" src="../static/TI2.png" alt="Card image" style="height: 50%; max-width: auto;">
-          <div class="card-body">
-            <h4 class="card-title">Trip Itinerary</h4>
-            <p class="card-text">To view trip itinerary for various destination cities under our umbrella.</p>
-            <button type="submit" class="btn btn-warning"  style="width: 50%;"><strong>View</strong></button>
+        <form action="{{url_for('trip_information')}}">
+          <div class="card text-light" style="width:280px; height: 400px; margin: 20px 0px 10px 0px; background-color: black;">
+            <img class="card-img-top" src="../static/TI2.png" alt="Card image" style="height: 50%; max-width: auto;">
+            <div class="card-body">
+              <h4 class="card-title">Trip Itinerary</h4>
+              <p class="card-text">To view trip itinerary for various destination cities under our umbrella.</p>
+              <button type="submit" class="btn btn-warning"  style="width: 50%;"><strong>View</strong></button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
-
+    
+    
       <div class="col-sm">
+        <form action="{{url_for('add_trip')}}">
         <div class="card text-light" style="width:280px; height: 400px; margin: 20px 0px 0px 0px; background-color:black;">
           <img class="card-img-top" src="../static/AT.jpg" alt="Card image" style="height: 50%; max-width: auto;">
           <div class="card-body">
@@ -53,9 +57,12 @@
             <button type="submit" class="btn btn-warning"  style="width: 50%;"><strong>Add</strong></button>
           </div>
         </div>
+        </form> 
       </div>
-         
+    
+     
     <div class="col-sm">
+      <form action="{{url_for('ticket_booking')}}">   
       <div class="card text-light" style="width:280px; height: 400px; margin: 20px 0px 10px 0px; background-color: black;">
         <img class="card-img-top" src="../static/p2.jpg" alt="Card image" style="height: 50%; max-width: auto;">
         <div class="card-body">
@@ -64,9 +71,12 @@
           <button type="submit" class="btn btn-warning"  style="width: 50%;"><strong>View</strong></button>
         </div>
       </div>
+      </form>
     </div>
-    <form action="{{url_for('user_report')}}" method="get">
+  
+    
       <div class="col-sm">
+        <form action="{{url_for('user_report')}}" method="get">
         <div class="card text-light" style="width:280px; height: 400px; margin: 20px 0px 10px 0px; background-color: black;">
           <img class="card-img-top" src="../static/c2.png" alt="Card image" style="height: 50%; max-width: auto;">
           <div class="card-body">
@@ -75,8 +85,9 @@
             <button type="submit"  class="btn btn-warning" style="width: 50%; "><strong>View</strong></button>
           </div>
         </div>
+        </form>
       </div>
-    </form>
+    
   </div>
 
 </div>

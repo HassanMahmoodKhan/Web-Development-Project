@@ -296,11 +296,27 @@ print(g_fname)
 
 @app.route('/Final Ticket', methods=['GET', 'POST'])
 def final_ticket():
-    
+    ori = global_ori[0][0:2]
+    des = global_des[0][0:2]
+    seat = option[0][0:3]
+    query = "SELECT MAX( id ) FROM DATABASEPROJ.ticket_purchase"
+    cur.execute(query)
+    details = cur.fetchall()
+    print (details)
+    i1 = (details[0][0])
+    i2 = int(i1)
+    print(i2)
+    i3 = str(i2+1)
+    ticket_no = (ori.upper()+des.upper()+seat.upper()+i3)
 
+    query1 = "INSERT INTO DATABASEPROJ.ticket_purchase (ticket_number, origin, destination, travel_date, departure_time, arrival_time, booking_date, seat_class, fare) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    tup1= (ticket_no, global_ori[0], global_des[0], global_dat[0], departure_time[0], arrival_time[0], today, option[0], total_1[0])
+    cur.execute(query1,tup1)
+    conn.commit()
+    
     return render_template('final_ticket.html', passenger= g_passenger[0] , train_no= option[0] , origin= global_ori[0] , destination= global_des[0] ,
                                                 date= global_dat[0] , departure_time= departure_time[0] ,arrival_time= arrival_time[0] , seat_class= option[0] ,
-                                                fare= fare_1[0], total_fare= total_1[0], date_p = today)
+                                                fare= fare_1[0], total_fare= total_1[0], date_p = today, ticket_no=ticket_no)
 
 @app.route('/Admin', methods=['GET', 'POST'])
 def admin():
@@ -322,6 +338,49 @@ def user_report():
     text_file.write(html)
     text_file.close()
     return render_template('registered_user.html')    
+
+@app.route('/Trip Information')
+def trip_information():
+    df = sql.read_sql('SELECT * FROM DATABASEPROJ.train_data', conn)
+    print(df)
+    html = df.to_html()
+    text_file = open('templates//trip_data.html', 'w')
+    text_file.write(html)
+    text_file.close()
+    return render_template('trip_data.html')   
+
+@app.route('/Ticket Booking')
+def ticket_booking():
+    df = sql.read_sql('SELECT * FROM DATABASEPROJ.ticket_purchase', conn)
+    print(df)
+    html = df.to_html()
+    text_file = open('templates//ticket_purchase.html', 'w')
+    text_file.write(html)
+    text_file.close()
+    return render_template('ticket_purchase.html') 
+
+@app.route('/Add Trip')
+def add_trip():
+    return render_template('Add Trip.html')
+
+@app.route('/Add Trip 1' , methods=['GET', 'POST'])
+def add_trip1():
+    origin = request.form.get('origin')
+    destination = request.form.get('destination')
+    departure_time =  request.form.get('departure_time')
+    arrival_time =  request.form.get('arrival_time')
+    duration =  request.form.get('duration')
+    train_no = request.form.get('train_no')
+    economy_fare = request.form.get('economy_fare')
+    buisness_fare =  request.form.get('buisness_fare')
+
+    query = "INSERT INTO DATABASEPROJ.train_data (train, departure, arrival, departure_time, arrival_time, duration, economy, business) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+    tup1= (train_no, origin, destination, departure_time, arrival_time, duration, economy_fare, buisness_fare) 
+    print(tup1)
+    cur.execute(query,tup1) 
+    conn.commit()
+
+    return redirect(url_for('trip_information'))
    
     
 
