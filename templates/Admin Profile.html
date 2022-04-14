@@ -30,7 +30,7 @@
       </div>
   
 <div class="container-fluid mt-3 mb-4 " style="margin-left: 15px; margin-right: 15px;">
-  <form action="{{url_for('login2')}}" method="get">
+  
   <div class="row">
    
       <div class="col-sm">
@@ -65,20 +65,20 @@
         </div>
       </div>
     </div>
-
-    <div class="col-sm">
-      <div class="card text-light" style="width:280px; height: 400px; margin: 20px 0px 10px 0px; background-color: black;">
-        <img class="card-img-top" src="../static/c2.png" alt="Card image" style="height: 50%; max-width: auto;">
-        <div class="card-body">
-          <h4 class="card-title">Customer Profiles</h4>
-          <p class="card-text">To access user profiles, including guest checkouts and associated data.</p>
-          <button type="submit" class="btn btn-warning" style="width: 50%; "><strong>View</strong></button>
+    <form action="{{url_for('user_report')}}" method="get">
+      <div class="col-sm">
+        <div class="card text-light" style="width:280px; height: 400px; margin: 20px 0px 10px 0px; background-color: black;">
+          <img class="card-img-top" src="../static/c2.png" alt="Card image" style="height: 50%; max-width: auto;">
+          <div class="card-body">
+            <h4 class="card-title">Customer Profiles</h4>
+            <p class="card-text">To access user profiles, including guest checkouts and associated data.</p>
+            <button type="submit"  class="btn btn-warning" style="width: 50%; "><strong>View</strong></button>
+          </div>
         </div>
       </div>
-    </div>
-    
+    </form>
   </div>
-</form>
+
 </div>
 
   <div class="container-fluid text-light bg-dark" style="text-align: center; padding: 13px 0px 3px 0px; position:fixed; bottom: 0px;">

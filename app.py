@@ -1,3 +1,4 @@
+from distutils import text_file
 import os
 from flask import Flask, redirect, render_template, request, url_for
 from datetime import datetime
@@ -311,7 +312,16 @@ def admin2():
     password = request.form.get('password')
     if email == 'admin@gmail.com' and password == 'admin123':
         return render_template('Admin Profile.html')
-        
+
+@app.route('/user report')
+def user_report():
+    df = sql.read_sql('SELECT * FROM DATABASEPROJ.registration_info', conn)
+    print(df)
+    html = df.to_html()
+    text_file = open('templates//registered_user.html', 'w')
+    text_file.write(html)
+    text_file.close()
+    return render_template('registered_user.html')    
    
     
 
